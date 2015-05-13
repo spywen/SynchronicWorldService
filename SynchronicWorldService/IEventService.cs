@@ -63,6 +63,14 @@ namespace SynchronicWorldService
         /// </summary>
         /// <returns></returns>
         Models.ServiceResponse<bool> UpgradePendingEventsAsOpen();
+
+        /// <summary>
+        /// Suscribe a user to an event
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId);
     }
 
 

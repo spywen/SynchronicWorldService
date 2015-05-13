@@ -101,6 +101,9 @@
     <None Include="Database\ContributionTypes .csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Database\PersonEvent.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Database\Events.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

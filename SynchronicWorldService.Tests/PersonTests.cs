@@ -76,12 +76,13 @@ namespace SynchronicWorldService.Test
             var personToRemove = UoW.Context.People.Find(1);
             Assert.IsNotNull(personToRemove);
 
-            var response = service.DeletePerson(1);
+            var response = service.DeletePerson(2);
 
             Assert.IsTrue(response.Result);
             Assert.AreEqual(0, response.Report.ErrorList.Count);
-            var personRemoved = UoW.Context.People.Find(1);
+            var personRemoved = UoW.Context.People.Find(2);
             Assert.IsNull(personRemoved);
+            Assert.AreEqual(0, UoW.Context.Events.First(x => x.Id == 1).People.Count);
         }
 
         [Test]

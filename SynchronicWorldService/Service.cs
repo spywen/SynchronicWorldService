@@ -29,10 +29,7 @@ namespace SynchronicWorldService
 
 
                     if (mgrResponse.Report.GetNumberOfErrors() == 0)
-                    {
                         uow.Context.SaveChanges();
-                        uow.Context.GetId(mgrResponse.Result);
-                    }
 
                     response.SetResponseAndReport(eventManager.ConvertEventToWcfEvent(mgrResponse.Result), mgrResponse.Report);
                 }
@@ -234,6 +231,38 @@ namespace SynchronicWorldService
                     var eventManager = ManagerFactory.Resolve<IEventManager>();
                     eventManager.UoW = uow;
                     var mgrResponse = eventManager.UpgradePendingEventsAsOpen();
+
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                        uow.Context.SaveChanges();
+
+                    response.SetResponseAndReport(mgrResponse.Result, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.LogException(e);
+                response.Result = false;
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId)
+        {
+            var response = new Models.ServiceResponse<bool>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var eventManager = ManagerFactory.Resolve<IEventManager>();
+                    eventManager.UoW = uow;
+                    var mgrResponse = eventManager.SuscribeUserToAnOpenEvent(userId, eventId);
 
                     if (mgrResponse.Report.GetNumberOfErrors() == 0)
                         uow.Context.SaveChanges();
