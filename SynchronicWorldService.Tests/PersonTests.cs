@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using SynchronicWorldService.Business;
 using System.Linq;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Test
 {
@@ -11,7 +12,7 @@ namespace SynchronicWorldService.Test
         private Service service { get; set; }
 
         [SetUp]
-        public void SetUp()
+        public void Setup()
         {
             service = new Service();
         }
@@ -33,7 +34,7 @@ namespace SynchronicWorldService.Test
             var response = service.GetPerson(9999);
 
             Assert.IsNull(response.Result);
-            Assert.AreEqual(response.Report.ErrorList.First(), SynchronicWorldServiceResources.Person_Not_Found);
+            Assert.AreEqual(response.Report.ErrorList.First(), SWResources.Person_Not_Found);
         }
 
         [Test]

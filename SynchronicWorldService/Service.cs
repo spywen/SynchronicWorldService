@@ -2,6 +2,7 @@
 using SynchronicWorldService.DataAccess;
 using System;
 using System.Collections.Generic;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService
 {
@@ -36,7 +37,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -63,7 +64,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -91,7 +92,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -121,7 +122,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -151,7 +152,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
             }
@@ -181,7 +182,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -210,7 +211,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
             }
@@ -240,7 +241,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
             }
@@ -272,7 +273,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
             }
@@ -310,7 +311,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -337,7 +338,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -367,7 +368,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -397,7 +398,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
             }
@@ -432,7 +433,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -459,7 +460,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -487,7 +488,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;
@@ -514,7 +515,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.ServiceError);
+                response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
             }
             return response;

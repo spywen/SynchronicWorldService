@@ -3,6 +3,7 @@ using SynchronicWorldService.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Test
 {
@@ -14,7 +15,7 @@ namespace SynchronicWorldService.Test
         private Service Service { get; set; }
 
         [SetUp]
-        public void SetUp()
+        public void Setup()
         {
             Service = new Service();
         }
@@ -44,7 +45,7 @@ namespace SynchronicWorldService.Test
             var response = Service.GetEvent(9999);
 
             Assert.IsNull(response.Result);
-            Assert.AreEqual(response.Report.ErrorList.First(), SynchronicWorldServiceResources.Event_Not_Found);
+            Assert.AreEqual(response.Report.ErrorList.First(), SWResources.Event_Not_Found);
         }
 
         [Test]
@@ -146,7 +147,7 @@ namespace SynchronicWorldService.Test
 
             Assert.IsTrue(response.Result);
             Assert.AreEqual(0, response.Report.GetNumberOfErrors());
-            Assert.AreEqual(String.Format(SynchronicWorldServiceResources.Closed_Events_Removed, 2), response.Report.InfoList.First());
+            Assert.AreEqual(String.Format(SWResources.Closed_Events_Removed, 2), response.Report.InfoList.First());
         }
 
         [Test]
@@ -156,7 +157,7 @@ namespace SynchronicWorldService.Test
 
             Assert.IsTrue(response.Result);
             Assert.AreEqual(0, response.Report.GetNumberOfErrors());
-            Assert.AreEqual(String.Format(SynchronicWorldServiceResources.Upgrade_Events_Status_From_Pending_To_Open_Done, 1), response.Report.InfoList.First());
+            Assert.AreEqual(String.Format(SWResources.Upgrade_Events_Status_From_Pending_To_Open_Done, 1), response.Report.InfoList.First());
         }
 
         [TestCaseSource("SuscribeUserToAnOpenEventCases")]
@@ -192,10 +193,10 @@ namespace SynchronicWorldService.Test
         public IEnumerable<object[]> SuscribeUserToAnOpenEventCases()
         {
             yield return new object[] { 1, 1, true, "" };//Success case
-            yield return new object[] { 2, 1, false, SynchronicWorldServiceResources.SuscribeUserToAnEvent_UserAlreadySuscribed };//User already suscribed
-            yield return new object[] { 1, 9999, false, SynchronicWorldServiceResources.Event_Not_Found };//Event not found
-            yield return new object[] { 2, 2, false, SynchronicWorldServiceResources.SuscribeUserToAnEvent_EventNotOpen };//Event not open
-            yield return new object[] { 9999, 1, false, SynchronicWorldServiceResources.Person_Not_Found };//Person not found
+            yield return new object[] { 2, 1, false, SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed };//User already suscribed
+            yield return new object[] { 1, 9999, false, SWResources.Event_Not_Found };//Event not found
+            yield return new object[] { 2, 2, false, SWResources.SuscribeUserToAnEvent_EventNotOpen };//Event not open
+            yield return new object[] { 9999, 1, false, SWResources.Person_Not_Found };//Person not found
         }
         #endregion
     }

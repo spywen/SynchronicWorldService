@@ -10,7 +10,7 @@ namespace SynchronicWorldService.Test
         private Service Service { get; set; }
 
         [SetUp]
-        public void SetUp()
+        public void Setup()
         {
             Service = new Service();
         }

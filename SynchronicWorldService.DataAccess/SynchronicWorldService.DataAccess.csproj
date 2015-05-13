@@ -159,6 +159,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SynchronicWorldService.Utils\SynchronicWorldService.Utils.csproj">
+      <Project>{80e1220f-4e56-48fe-b26b-9c95204faecf}</Project>
+      <Name>SynchronicWorldService.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

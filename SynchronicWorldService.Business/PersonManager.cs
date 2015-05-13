@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Linq;
 using SynchronicWorldService.DataAccess;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Business
 {
@@ -22,7 +23,7 @@ namespace SynchronicWorldService.Business
             var personFound = UoW.Context.People.Find(id);
             if (personFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SynchronicWorldServiceResources.Person_Not_Found);
+                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
             }
             else
             {
@@ -56,7 +57,7 @@ namespace SynchronicWorldService.Business
                 var personFound = UoW.Context.People.Find(person.Id);
                 if (personFound == null)
                 {
-                    svcResponse.Report.ErrorList.Add(SynchronicWorldServiceResources.Person_Not_Found);
+                    svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
                 }
                 else
                 {
@@ -80,7 +81,7 @@ namespace SynchronicWorldService.Business
             var personFound = UoW.Context.People.Include(x => x.Events).FirstOrDefault(x => x.Id == id);
             if (personFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SynchronicWorldServiceResources.Person_Not_Found);
+                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
                 svcResponse.Result = false;
             }
             else

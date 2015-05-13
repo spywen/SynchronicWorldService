@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SynchronicWorldService.DataAccess;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Business
 {
@@ -37,7 +38,7 @@ namespace SynchronicWorldService.Business
             };
             if (response.Result == null)
             {
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.Event_Type_Not_Found);
+                response.Report.ErrorList.Add(SWResources.Event_Type_Not_Found);
             }
             return response;
         }

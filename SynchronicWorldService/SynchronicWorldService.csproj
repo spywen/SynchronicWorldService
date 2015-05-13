@@ -76,6 +76,10 @@
       <Project>{a5100a12-d637-4332-81e5-f348fdd49a27}</Project>
       <Name>SynchronicWorldService.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SynchronicWorldService.Utils\SynchronicWorldService.Utils.csproj">
+      <Project>{80e1220f-4e56-48fe-b26b-9c95204faecf}</Project>
+      <Name>SynchronicWorldService.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\WCF\Microsoft.VisualStudio.ServiceModel.targets" />
