@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="80f45d7d-a742-4f4d-8c8b-bfaa2ccb10af" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:82/SynchronicWorldService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="76bc0a27-2f89-444d-9ee2-2124a2623814" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="06eddc4d-0dd7-4e92-810b-f08edad7e392" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="03217e99-34a0-4e09-9a07-357de7f03fdc" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="SynchronicWorldService.Models.xsd" MetadataType="Schema" ID="58df41ff-2809-4a47-9cf6-0b6ddfa3b05c" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="dff38970-85f9-49e2-ae62-212f485f2d1b" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
