@@ -1,4 +1,6 @@
-﻿using SynchronicWorldService.DataAccess;
+﻿using System.Data.Entity;
+using System.Linq;
+using SynchronicWorldService.DataAccess;
 
 namespace SynchronicWorldService.Business
 {
@@ -75,7 +77,7 @@ namespace SynchronicWorldService.Business
         public Models.ServiceResponse<bool> Delete(int id)
         {
             var svcResponse = new Models.ServiceResponse<bool>();
-            var personFound = UoW.Context.People.Find(id);
+            var personFound = UoW.Context.People.Include(x => x.Events).FirstOrDefault(x => x.Id == id);
             if (personFound == null)
             {
                 svcResponse.Report.ErrorList.Add(SynchronicWorldServiceResources.Person_Not_Found);

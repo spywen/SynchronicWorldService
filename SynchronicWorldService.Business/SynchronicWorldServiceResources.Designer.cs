@@ -124,6 +124,15 @@ namespace SynchronicWorldService.Business {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à User already suscribed to this event.
+        /// </summary>
+        public static string SuscribeUserToAnEvent_UserAlreadySuscribed {
+            get {
+                return ResourceManager.GetString("SuscribeUserToAnEvent_UserAlreadySuscribed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à {0} event(s) have been upgraded from pending status to open status.
         /// </summary>
         public static string Upgrade_Events_Status_From_Pending_To_Open_Done {
