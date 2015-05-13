@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LocalDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LocalDbModelStoreContainer">
+    <EntitySet Name="People" EntityType="LocalDbModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Contributions" EntityType="LocalDbModel.Store.Contributions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContributionTypes" EntityType="LocalDbModel.Store.ContributionTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="LocalDbModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventStatuses" EntityType="LocalDbModel.Store.EventStatuses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventTypes" EntityType="LocalDbModel.Store.EventTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonEvent" EntityType="LocalDbModel.Store.PersonEvent" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ContributionEvent" Association="LocalDbModel.Store.FK_ContributionEvent">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Contribution" EntitySet="Contributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributionOwner" Association="LocalDbModel.Store.FK_ContributionOwner">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Contribution" EntitySet="Contributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContributionType" Association="LocalDbModel.Store.FK_ContributionType">
+      <End Role="ContributionType" EntitySet="ContributionTypes" />
+      <End Role="Contribution" EntitySet="Contributions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStatus" Association="LocalDbModel.Store.FK_EventStatus">
+      <End Role="EventStatu" EntitySet="EventStatuses" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventType" Association="LocalDbModel.Store.FK_EventType">
+      <End Role="EventType" EntitySet="EventTypes" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEvent_Person" Association="LocalDbModel.Store.FK_PersonEvent_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonEvent" EntitySet="PersonEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEvent_Event" Association="LocalDbModel.Store.FK_PersonEvent_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="PersonEvent" EntitySet="PersonEvent" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Nickname" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Contributions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Fk_Person" Type="int" Nullable="false" />
+    <Property Name="Fk_Type" Type="int" Nullable="false" />
+    <Property Name="Fk_Event" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContributionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Address" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="200" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Fk_Type" Type="int" Nullable="false" />
+    <Property Name="Fk_Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventStatuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EventTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PersonEvent">
+    <Key>
+      <PropertyRef Name="People_Id" />
+      <PropertyRef Name="Events_Id" />
+    </Key>
+    <Property Name="People_Id" Type="int" Nullable="false" />
+    <Property Name="Events_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ContributionEvent">
+    <End Role="Event" Type="LocalDbModel.Store.Events" Multiplicity="1" />
+    <End Role="Contribution" Type="LocalDbModel.Store.Contributions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contribution">
+        <PropertyRef Name="Fk_Event" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributionOwner">
+    <End Role="Person" Type="LocalDbModel.Store.People" Multiplicity="1" />
+    <End Role="Contribution" Type="LocalDbModel.Store.Contributions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contribution">
+        <PropertyRef Name="Fk_Person" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContributionType">
+    <End Role="ContributionType" Type="LocalDbModel.Store.ContributionTypes" Multiplicity="1" />
+    <End Role="Contribution" Type="LocalDbModel.Store.Contributions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContributionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contribution">
+        <PropertyRef Name="Fk_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStatus">
+    <End Role="EventStatu" Type="LocalDbModel.Store.EventStatuses" Multiplicity="1" />
+    <End Role="Event" Type="LocalDbModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="Fk_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventType">
+    <End Role="EventType" Type="LocalDbModel.Store.EventTypes" Multiplicity="1" />
+    <End Role="Event" Type="LocalDbModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="Fk_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEvent_Person">
+    <End Role="Person" Type="LocalDbModel.Store.People" Multiplicity="1" />
+    <End Role="PersonEvent" Type="LocalDbModel.Store.PersonEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEvent">
+        <PropertyRef Name="People_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEvent_Event">
+    <End Role="PersonEvent" Type="LocalDbModel.Store.PersonEvent" Multiplicity="*" />
+    <End Role="Event" Type="LocalDbModel.Store.Events" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEvent">
+        <PropertyRef Name="Events_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LocalDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SWContext" p1:LazyLoadingEnabled="true" >
+          <EntitySet Name="People" EntityType="LocalDbModel.Person" />
+          <EntitySet Name="Contributions" EntityType="LocalDbModel.Contribution" />
+          <EntitySet Name="ContributionTypes" EntityType="LocalDbModel.ContributionType" />
+          <EntitySet Name="Events" EntityType="LocalDbModel.Event" />
+          <EntitySet Name="EventStatuses" EntityType="LocalDbModel.EventStatus" />
+          <EntitySet Name="EventTypes" EntityType="LocalDbModel.EventType" />
+          <AssociationSet Name="FK_ContributionEvent" Association="LocalDbModel.FK_ContributionEvent">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContributionOwner" Association="LocalDbModel.FK_ContributionOwner">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContributionType" Association="LocalDbModel.FK_ContributionType">
+            <End Role="ContributionType" EntitySet="ContributionTypes" />
+            <End Role="Contribution" EntitySet="Contributions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventStatus" Association="LocalDbModel.FK_EventStatus">
+            <End Role="EventStatu" EntitySet="EventStatuses" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EventType" Association="LocalDbModel.FK_EventType">
+            <End Role="EventType" EntitySet="EventTypes" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="PersonEvent" Association="LocalDbModel.PersonEvent">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contributions" Relationship="LocalDbModel.FK_ContributionOwner" FromRole="Person" ToRole="Contribution" />
+          <NavigationProperty Name="Events" Relationship="LocalDbModel.PersonEvent" FromRole="Person" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="Contribution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Int32" Name="Fk_Person" Nullable="false" />
+          <Property Type="Int32" Name="Fk_Type" Nullable="false" />
+          <Property Type="Int32" Name="Fk_Event" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="LocalDbModel.FK_ContributionEvent" FromRole="Contribution" ToRole="Event" />
+          <NavigationProperty Name="Person" Relationship="LocalDbModel.FK_ContributionOwner" FromRole="Contribution" ToRole="Person" />
+          <NavigationProperty Name="ContributionType" Relationship="LocalDbModel.FK_ContributionType" FromRole="Contribution" ToRole="ContributionType" />
+        </EntityType>
+        <EntityType Name="ContributionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contributions" Relationship="LocalDbModel.FK_ContributionType" FromRole="ContributionType" ToRole="Contribution" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="Fk_Type" Nullable="false" />
+          <Property Type="Int32" Name="Fk_Status" Nullable="false" />
+          <NavigationProperty Name="Contributions" Relationship="LocalDbModel.FK_ContributionEvent" FromRole="Event" ToRole="Contribution" />
+          <NavigationProperty Name="EventStatus" Relationship="LocalDbModel.FK_EventStatus" FromRole="Event" ToRole="EventStatu" />
+          <NavigationProperty Name="EventType" Relationship="LocalDbModel.FK_EventType" FromRole="Event" ToRole="EventType" />
+          <NavigationProperty Name="People" Relationship="LocalDbModel.PersonEvent" FromRole="Event" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="EventStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Events" Relationship="LocalDbModel.FK_EventStatus" FromRole="EventStatu" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Events" Relationship="LocalDbModel.FK_EventType" FromRole="EventType" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK_ContributionEvent">
+          <End Type="LocalDbModel.Event" Role="Event" Multiplicity="1" />
+          <End Type="LocalDbModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="Fk_Event" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContributionOwner">
+          <End Type="LocalDbModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="LocalDbModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="Fk_Person" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContributionType">
+          <End Type="LocalDbModel.ContributionType" Role="ContributionType" Multiplicity="1" />
+          <End Type="LocalDbModel.Contribution" Role="Contribution" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContributionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contribution">
+              <PropertyRef Name="Fk_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventStatus">
+          <End Type="LocalDbModel.EventStatus" Role="EventStatu" Multiplicity="1" />
+          <End Type="LocalDbModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Fk_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EventType">
+          <End Type="LocalDbModel.EventType" Role="EventType" Multiplicity="1" />
+          <End Type="LocalDbModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EventType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Fk_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PersonEvent">
+          <End Type="LocalDbModel.Person" Role="Person" Multiplicity="*" />
+          <End Type="LocalDbModel.Event" Role="Event" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocalDbModelStoreContainer" CdmEntityContainer="SWContext">
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contributions">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.Contribution)">
+        <MappingFragment StoreEntitySet="Contributions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Fk_Person" ColumnName="Fk_Person" />
+          <ScalarProperty Name="Fk_Type" ColumnName="Fk_Type" />
+          <ScalarProperty Name="Fk_Event" ColumnName="Fk_Event" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContributionTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.ContributionType)">
+        <MappingFragment StoreEntitySet="ContributionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Fk_Type" ColumnName="Fk_Type" />
+          <ScalarProperty Name="Fk_Status" ColumnName="Fk_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.EventStatus)">
+        <MappingFragment StoreEntitySet="EventStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(LocalDbModel.EventType)">
+        <MappingFragment StoreEntitySet="EventTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PersonEvent" TypeName="LocalDbModel.PersonEvent" StoreEntitySet="PersonEvent">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="People_Id" />
+      </EndProperty>
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="Events_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
