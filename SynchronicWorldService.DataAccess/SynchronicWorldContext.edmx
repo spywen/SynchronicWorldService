@@ -46,7 +46,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Nickname" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -54,7 +54,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="100" />
     <Property Name="Quantity" Type="int" Nullable="false" />
     <Property Name="Fk_Person" Type="int" Nullable="false" />
@@ -65,7 +65,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -73,7 +73,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" Nullable="false" MaxLength="200" />
     <Property Name="Address" Type="varchar" Nullable="true" MaxLength="200" />
     <Property Name="Description" Type="varchar" Nullable="true" MaxLength="200" />
@@ -85,7 +85,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -93,7 +93,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Code" Type="varchar" Nullable="false" MaxLength="50" />
     <Property Name="Value" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
@@ -229,7 +229,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contributions" Relationship="LocalDbModel.FK_ContributionOwner" FromRole="Person" ToRole="Contribution" />
@@ -239,7 +239,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="Quantity" Nullable="false" />
           <Property Type="Int32" Name="Fk_Person" Nullable="false" />
@@ -253,7 +253,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contributions" Relationship="LocalDbModel.FK_ContributionType" FromRole="ContributionType" ToRole="Contribution" />
@@ -262,7 +262,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -278,7 +278,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Events" Relationship="LocalDbModel.FK_EventStatus" FromRole="EventStatu" ToRole="Event" />
@@ -287,7 +287,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Events" Relationship="LocalDbModel.FK_EventType" FromRole="EventType" ToRole="Event" />

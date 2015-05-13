@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="LocalDbModel.Contribution" Width="1.5" PointX="6.5" PointY="5.125" />
         <EntityTypeShape EntityType="LocalDbModel.ContributionType" Width="1.5" PointX="9.125" PointY="5.375" FillColor="192, 255, 192" />
         <EntityTypeShape EntityType="LocalDbModel.Event" Width="1.5" PointX="4.5" PointY="5.125" />
-        <EntityTypeShape EntityType="LocalDbModel.EventStatus" Width="1.5" PointX="2.375" PointY="8.625" FillColor="192, 255, 192" IsExpanded="true" />
+        <EntityTypeShape EntityType="LocalDbModel.EventStatus" Width="1.5" PointX="2.375" PointY="8.625" FillColor="192, 255, 192" />
         <EntityTypeShape EntityType="LocalDbModel.EventType" Width="1.5" PointX="4.5" PointY="8.625" FillColor="192, 255, 192" />
         <AssociationConnector Association="LocalDbModel.FK_ContributionEvent" />
         <AssociationConnector Association="LocalDbModel.FK_ContributionOwner" />

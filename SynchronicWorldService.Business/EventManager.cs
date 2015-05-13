@@ -104,7 +104,7 @@ namespace SynchronicWorldService.Business
         public Models.ServiceResponse<bool> Delete(int id)
         {
             var svcResponse = new Models.ServiceResponse<bool>();
-            var eventFound = UoW.Context.Events.Include(x => x.People).FirstOrDefault(x => x.Id == id);
+            var eventFound = UoW.Context.Events.Find(id);
             if (eventFound == null)
             {
                 svcResponse.Report.ErrorList.Add(SynchronicWorldServiceResources.Event_Not_Found);
@@ -155,7 +155,6 @@ namespace SynchronicWorldService.Business
             var eventsClosed =
                 UoW.Context.Events.Where(x => x.EventStatus.Code == Models.EventStatusCode.Closed.ToString())
                     .ToList();
-
 
             eventsClosed.ForEach(x => UoW.Context.Events.Remove(x));
             response.Report.InfoList.Add(String.Format(SynchronicWorldServiceResources.Closed_Events_Removed, eventsClosed.Count));
@@ -236,15 +235,8 @@ namespace SynchronicWorldService.Business
                 return response;
             }
 
-            //Check if user already suscribed to the event
-            if (eventtResponse.Result.People.Any(x => x.Id == userId))
-            {
-                response.Result = false;
-                response.Report.ErrorList.Add(SynchronicWorldServiceResources.SuscribeUserToAnEvent_UserAlreadySuscribed);
-                return response;
-            }
-
-            eventtResponse.Result.People.Add(personResponse.Result);
+            /*eventtResponse.Result.PersonParticipeToEvents.A;
+            personResponse.Result.PersonParticipeToEvents.First().*/
 
             return response;
         }
