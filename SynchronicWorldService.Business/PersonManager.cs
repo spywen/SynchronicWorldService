@@ -1,7 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using SynchronicWorldService.DataAccess;
+using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
+using Person = SynchronicWorldService.DataAccess.Person;
 
 namespace SynchronicWorldService.Business
 {
@@ -95,6 +98,85 @@ namespace SynchronicWorldService.Business
         /// <summary>
         /// See interface
         /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId)
+        {
+            var response = new Models.ServiceResponse<bool> { Result = true };
+
+            //Get event
+            var eventMgr = ManagerFactory.Resolve<IEventManager>();
+            eventMgr.UoW = UoW;
+            var eventtResponse = eventMgr.Get(eventId);
+            if (eventtResponse.Report.GetNumberOfErrors() != 0)
+            {
+                response.Result = false;
+                response.SetResponseAndReport(false, eventtResponse.Report);
+                return response;
+            }
+            if (eventtResponse.Result.EventStatus.Code != EventStatusCode.Open.ToString())
+            {
+                response.Result = false;
+                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_EventNotOpen);
+                return response;
+            }
+
+            //Get user
+            var personResponse = Get(userId);
+            if (personResponse.Report.GetNumberOfErrors() != 0)
+            {
+                response.Result = false;
+                response.SetResponseAndReport(false, personResponse.Report);
+                return response;
+            }
+
+            //Check if user already suscribed to the event
+            if (eventtResponse.Result.People.Any(x => x.Id == userId))
+            {
+                response.Result = false;
+                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed);
+                return response;
+            }
+
+            eventtResponse.Result.People.Add(personResponse.Result);
+
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<List<Person>> FindPeopleLinkToOpenEvent(int eventId)
+        {
+            var response = new Models.ServiceResponse<List<Person>>();
+
+            //Get event
+            var eventMgr = ManagerFactory.Resolve<IEventManager>();
+            eventMgr.UoW = UoW;
+            var eventtResponse = eventMgr.Get(eventId);
+            if (eventtResponse.Report.GetNumberOfErrors() != 0)
+            {
+                response.SetResponseAndReport(null, eventtResponse.Report);
+                return response;
+            }
+            if (eventtResponse.Result.EventStatus.Code != EventStatusCode.Open.ToString())
+            {
+                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_EventNotOpen);
+                return response;
+            }
+
+            response.Result = eventtResponse.Result.People.ToList();
+
+            return response;
+        }
+
+        #region converters
+        /// <summary>
+        /// See interface
+        /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
         public Models.Person ConvertPersonToWcfPerson(Person person)
@@ -125,6 +207,7 @@ namespace SynchronicWorldService.Business
                 Nickname = person.Nickname
             };
         }
+        #endregion
 
     }
 
@@ -157,6 +240,18 @@ namespace SynchronicWorldService.Business
         /// <param name="id"></param>
         /// <returns></returns>
         Models.ServiceResponse<bool> Delete(int id);
+
+        /// <summary>
+        /// Suscribe a user to an event
+        /// </summary>
+        /// <returns></returns>
+        Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId);
+
+        /// <summary>
+        /// Find people link to an open event
+        /// </summary>
+        /// <returns></returns>
+        Models.ServiceResponse<List<Person>> FindPeopleLinkToOpenEvent(int eventId);
 
         /// <summary>
         /// Convert event to WCF event facade

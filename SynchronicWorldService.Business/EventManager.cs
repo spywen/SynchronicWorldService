@@ -37,7 +37,7 @@ namespace SynchronicWorldService.Business
         public Models.ServiceResponse<Event> Get(int id)
         {
             var svcResponse = new Models.ServiceResponse<Event>();
-            var eventFound = UoW.Context.Events.Include(x => x.EventStatus).Include(x => x.EventType).FirstOrDefault(x => x.Id == id);
+            var eventFound = UoW.Context.Events.Include(x => x.EventStatus).Include(x => x.EventType).Include(x => x.People).FirstOrDefault(x => x.Id == id);
             if (eventFound == null)
             {
                 svcResponse.Report.ErrorList.Add(SWResources.Event_Not_Found);
@@ -201,55 +201,6 @@ namespace SynchronicWorldService.Business
             return response;
         }
 
-        /// <summary>
-        /// See interface
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="eventId"></param>
-        /// <returns></returns>
-        public Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId)
-        {
-            var response = new Models.ServiceResponse<bool> { Result = true };
-
-            //Get event
-            var eventtResponse = Get(eventId);
-            if (eventtResponse.Report.GetNumberOfErrors() != 0)
-            {
-                response.Result = false;
-                response.SetResponseAndReport(false, eventtResponse.Report);
-                return response;
-            }
-            if (eventtResponse.Result.EventStatus.Code != EventStatusCode.Open.ToString())
-            {
-                response.Result = false;
-                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_EventNotOpen);
-                return response;
-            }
-
-            //Get user
-            var personMgr = ManagerFactory.Resolve<IPersonManager>();
-            personMgr.UoW = UoW;
-            var personResponse = personMgr.Get(userId);
-            if (personResponse.Report.GetNumberOfErrors() != 0)
-            {
-                response.Result = false;
-                response.SetResponseAndReport(false, personResponse.Report);
-                return response;
-            }
-
-            //Check if user already suscribed to the event
-            if (eventtResponse.Result.People.Any(x => x.Id == userId))
-            {
-                response.Result = false;
-                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed);
-                return response;
-            }
-
-            eventtResponse.Result.People.Add(personResponse.Result);
-
-            return response;
-        }
-
         #region converters
         /// <summary>
         /// See interface
@@ -381,12 +332,6 @@ namespace SynchronicWorldService.Business
         Models.ServiceResponse<bool> UpgradePendingEventsAsOpen();
 
         /// <summary>
-        /// Suscribe a user to an event
-        /// </summary>
-        /// <returns></returns>
-        Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId);
-
-            /// <summary>
         /// Convert event to WCF event facade
         /// </summary>
         /// <param name="eventt"></param>

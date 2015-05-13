@@ -247,38 +247,6 @@ namespace SynchronicWorldService
             }
             return response;
         }
-
-        /// <summary>
-        /// See interface
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="eventId"></param>
-        /// <returns></returns>
-        public Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId)
-        {
-            var response = new Models.ServiceResponse<bool>();
-            try
-            {
-                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
-                {
-                    var eventManager = ManagerFactory.Resolve<IEventManager>();
-                    eventManager.UoW = uow;
-                    var mgrResponse = eventManager.SuscribeUserToAnOpenEvent(userId, eventId);
-
-                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
-                        uow.Context.SaveChanges();
-
-                    response.SetResponseAndReport(mgrResponse.Result, mgrResponse.Report);
-                }
-            }
-            catch (Exception e)
-            {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
-                response.Result = false;
-            }
-            return response;
-        }
     }
 
     /// <summary>
@@ -401,6 +369,73 @@ namespace SynchronicWorldService
                 response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
                 response.Result = false;
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId)
+        {
+            var response = new Models.ServiceResponse<bool>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var personManager = ManagerFactory.Resolve<IPersonManager>();
+                    personManager.UoW = uow;
+                    var mgrResponse = personManager.SuscribeUserToAnOpenEvent(userId, eventId);
+
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                        uow.Context.SaveChanges();
+
+                    response.SetResponseAndReport(mgrResponse.Result, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SWResources.ServiceError);
+                response.Report.LogException(e);
+                response.Result = false;
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<List<Models.Person>> FindPeopleLinkToOpenEvent(int eventId)
+        {
+            var response = new Models.ServiceResponse<List<Models.Person>>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var personManager = ManagerFactory.Resolve<IPersonManager>();
+                    personManager.UoW = uow;
+                    var mgrResponse = personManager.FindPeopleLinkToOpenEvent(eventId);
+
+                    var people = new List<Models.Person>();
+
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                    {
+                        uow.Context.SaveChanges();
+                        mgrResponse.Result.ForEach(x => people.Add(personManager.ConvertPersonToWcfPerson(x)));
+                    }
+
+                    response.SetResponseAndReport(people, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SWResources.ServiceError);
+                response.Report.LogException(e);
             }
             return response;
         }

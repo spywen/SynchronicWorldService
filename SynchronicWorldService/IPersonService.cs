@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace SynchronicWorldService
 {
@@ -36,5 +37,20 @@ namespace SynchronicWorldService
         /// <returns></returns>
         [OperationContract]
         Models.ServiceResponse<bool> DeletePerson(int id);
+
+        /// <summary>
+        /// Suscribe a user to an event
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId);
+
+        /// <summary>
+        /// Find people link to an open event
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        Models.ServiceResponse<List<Models.Person>> FindPeopleLinkToOpenEvent(int eventId);
     }
 }

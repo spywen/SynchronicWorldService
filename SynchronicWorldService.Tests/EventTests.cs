@@ -159,30 +159,13 @@ namespace SynchronicWorldService.Test
             Assert.AreEqual(0, response.Report.GetNumberOfErrors());
             Assert.AreEqual(String.Format(SWResources.Upgrade_Events_Status_From_Pending_To_Open_Done, 1), response.Report.InfoList.First());
         }
-
-        [TestCaseSource("SuscribeUserToAnOpenEventCases")]
-        public void SuscribeUserToAnOpenEvent(int userId, int eventId, bool expectedResult, string errorMessage)
-        {
-            var response = Service.SuscribeUserToAnOpenEvent(userId, eventId);
-
-            Assert.AreEqual(expectedResult, response.Result);
-            if (expectedResult)
-            {
-                Assert.AreEqual(0, response.Report.GetNumberOfErrors());
-                Assert.IsTrue(UoW.Context.Events.Where(x => x.Id == eventId).FirstOrDefault().People.Any(x => x.Id == userId));
-            }
-            else
-            {
-                Assert.AreEqual(errorMessage, response.Report.ErrorList.First());
-            }
-        }
         #endregion
 
         #region cases
 
         public IEnumerable<object[]> SearchForEventsCases()
         {
-            yield return new object[] { new Models.Facades.EventSearchFacade(), 4, 4};
+            yield return new object[] { new Models.Facades.EventSearchFacade(), 5, 5};
             yield return new object[] { new Models.Facades.EventSearchFacade { Name = "First Event" }, 1, 1 };
             yield return new object[] { new Models.Facades.EventSearchFacade { Date = new DateTime(2016,12,06)}, 3, 1 };
             yield return new object[] { new Models.Facades.EventSearchFacade { StartDate = new DateTime(2000, 12, 06), EndDate = new DateTime(2016, 12, 20) }, 3, 3 };
@@ -190,14 +173,6 @@ namespace SynchronicWorldService.Test
             yield return new object[] { new Models.Facades.EventSearchFacade { EventTypeCode = Models.EventTypeCode.Party.ToString() }, 4, 2 };
         }
 
-        public IEnumerable<object[]> SuscribeUserToAnOpenEventCases()
-        {
-            yield return new object[] { 1, 1, true, "" };//Success case
-            yield return new object[] { 2, 1, false, SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed };//User already suscribed
-            yield return new object[] { 1, 9999, false, SWResources.Event_Not_Found };//Event not found
-            yield return new object[] { 2, 2, false, SWResources.SuscribeUserToAnEvent_EventNotOpen };//Event not open
-            yield return new object[] { 9999, 1, false, SWResources.Person_Not_Found };//Person not found
-        }
         #endregion
     }
 }
