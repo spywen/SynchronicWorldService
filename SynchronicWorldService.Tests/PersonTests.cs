@@ -84,6 +84,7 @@ namespace SynchronicWorldService.Test
             var personRemoved = UoW.Context.People.Find(2);
             Assert.IsNull(personRemoved);
             Assert.AreEqual(0, UoW.Context.Events.First(x => x.Id == 1).People.Count);
+            Assert.AreEqual(0, UoW.Context.Contributions.Count(x => x.Fk_Person == 2));
         }
 
         [Test]

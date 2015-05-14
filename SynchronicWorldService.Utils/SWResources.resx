@@ -120,6 +120,9 @@
   <data name="Closed_Events_Removed" xml:space="preserve">
     <value>{0} event(s) with Closed status have been removed</value>
   </data>
+  <data name="DeleteAllPersonContributionsForOpenEvents_Success" xml:space="preserve">
+    <value>{0} contributions have been removed</value>
+  </data>
   <data name="Event_Not_Found" xml:space="preserve">
     <value>No event found</value>
   </data>

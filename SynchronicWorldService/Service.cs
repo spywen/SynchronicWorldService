@@ -7,7 +7,7 @@ using SynchronicWorldService.Utils;
 namespace SynchronicWorldService
 {
     /// <summary>
-    /// Event service
+    /// Events service
     /// </summary>
     public partial class Service : IEventService
     {
@@ -250,7 +250,7 @@ namespace SynchronicWorldService
     }
 
     /// <summary>
-    /// Person service
+    /// Persons service
     /// </summary>
     public partial class Service : IPersonService
     {
@@ -552,6 +552,109 @@ namespace SynchronicWorldService
             {
                 response.Report.ErrorList.Add(SWResources.ServiceError);
                 response.Report.LogException(e);
+            }
+            return response;
+        }
+    }
+
+    /// <summary>
+    /// Contributions service
+    /// </summary>
+    public partial class Service : IContributionService
+    {
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<List<Models.Contribution>> GetEventContributions(int eventId)
+        {
+            var response = new Models.ServiceResponse<List<Models.Contribution>>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var contributionManager = ManagerFactory.Resolve<IContributionManager>();
+                    contributionManager.UoW = uow;
+                    var mgrResponse = contributionManager.GetEventContributions(eventId);
+
+                    var contribs = new List<Models.Contribution>();
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                    {
+                        mgrResponse.Result.ForEach(x => contribs.Add(contributionManager.ConvertContribToWcfContrib(x)));
+                    }
+                    
+                    response.SetResponseAndReport(contribs, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SWResources.ServiceError);
+                response.Report.LogException(e);
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<List<Models.Contribution>> GetPersonContributions(int userId)
+        {
+            var response = new Models.ServiceResponse<List<Models.Contribution>>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var contributionManager = ManagerFactory.Resolve<IContributionManager>();
+                    contributionManager.UoW = uow;
+                    var mgrResponse = contributionManager.GetPersonContributions(userId);
+
+                    var contribs = new List<Models.Contribution>();
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                    {
+                        mgrResponse.Result.ForEach(x => contribs.Add(contributionManager.ConvertContribToWcfContrib(x)));
+                    }
+
+                    response.SetResponseAndReport(contribs, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SWResources.ServiceError);
+                response.Report.LogException(e);
+            }
+            return response;
+        }
+
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public Models.ServiceResponse<bool> DeleteAllPersonContributionsForOpenEvents(int userId)
+        {
+            var response = new Models.ServiceResponse<bool>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var contributionManager = ManagerFactory.Resolve<IContributionManager>();
+                    contributionManager.UoW = uow;
+                    var mgrResponse = contributionManager.DeleteAllPersonContributionsForOpenEvents(userId);
+
+                    if (mgrResponse.Report.GetNumberOfErrors() == 0)
+                        uow.Context.SaveChanges();
+
+                    response.SetResponseAndReport(mgrResponse.Result, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.ErrorList.Add(SWResources.ServiceError);
+                response.Report.LogException(e);
+                response.Result = false;
             }
             return response;
         }

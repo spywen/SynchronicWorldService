@@ -3,7 +3,7 @@ using SynchronicWorldService.Models;
 
 namespace SynchronicWorldService.Test
 {
-    [TestFixture(Category = "Event Tests")]
+    [TestFixture(Category = "Enums Tests")]
     public class EnumsTests : EffortBaseTest
     {
         #region setup

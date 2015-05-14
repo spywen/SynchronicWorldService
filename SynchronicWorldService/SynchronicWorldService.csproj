@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IContributionService.cs" />
     <Compile Include="IEnumsService.cs" />
     <Compile Include="IEventService.cs" />
     <Compile Include="IPersonService.cs" />

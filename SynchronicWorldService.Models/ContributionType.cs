@@ -3,16 +3,9 @@
 namespace SynchronicWorldService.Models
 {
     [DataContract]
-    public class EventType
+    public class ContributionType
     {
-        public EventType() { }
-
-        public EventType(DataAccess.EventType eventType)
-        {
-            Id = eventType.Id;
-            Code = eventType.Code;
-            Value = eventType.Value;
-        }
+        public ContributionType() { }
 
         [DataMember]
         public int Id { get; set; }
@@ -24,11 +17,12 @@ namespace SynchronicWorldService.Models
     }
 
     /// <summary>
-    /// Event Type code
+    /// Contribution Type code
     /// </summary>
-    public enum EventTypeCode
+    public enum ContributionTypeCode
     {
-        Party,
-        Lunch
+        Money,
+        Food,
+        Beverage
     }
 }

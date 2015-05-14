@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
-using SynchronicWorldService.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Test
@@ -114,6 +114,7 @@ namespace SynchronicWorldService.Test
             var eventRemoved = UoW.Context.Events.Find(1);
             Assert.IsNull(eventRemoved);
             Assert.AreEqual(0, UoW.Context.People.First(x => x.Id == 2).Events.Count);
+            Assert.AreEqual(0, UoW.Context.Contributions.Count(x => x.Fk_Event == 1));
         }
 
         [Test]
@@ -143,11 +144,14 @@ namespace SynchronicWorldService.Test
         [Test]
         public void DeleteClosedEvents()
         {
+            Assert.AreEqual(1, UoW.Context.Contributions.Count(x => x.Event.EventStatus.Code == EventStatusCode.Closed.ToString()));
+
             var response = Service.DeleteClosedEvents();
 
             Assert.IsTrue(response.Result);
             Assert.AreEqual(0, response.Report.GetNumberOfErrors());
             Assert.AreEqual(String.Format(SWResources.Closed_Events_Removed, 2), response.Report.InfoList.First());
+            Assert.AreEqual(0, UoW.Context.Contributions.Count(x => x.Event.EventStatus.Code == EventStatusCode.Closed.ToString()));
         }
 
         [Test]

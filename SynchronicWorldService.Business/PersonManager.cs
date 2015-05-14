@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Microsoft.Practices.ObjectBuilder2;
 using SynchronicWorldService.DataAccess;
 using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
@@ -89,6 +90,10 @@ namespace SynchronicWorldService.Business
             }
             else
             {
+                //Remove his contributions
+                var contribsToRemove = UoW.Context.Contributions.Where(x => x.Fk_Person == id);
+                contribsToRemove.ForEach(x => UoW.Context.Contributions.Remove(x));
+
                 UoW.Context.People.Remove(personFound);
                 svcResponse.Result = true;
             }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContributionManager.cs" />
     <Compile Include="EventManager.cs" />
     <Compile Include="EventStatusManager.cs" />
     <Compile Include="EventTypeManager.cs" />

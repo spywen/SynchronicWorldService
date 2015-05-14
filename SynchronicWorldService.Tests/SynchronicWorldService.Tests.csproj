@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Configs\EffortBaseTest.cs" />
     <Compile Include="Configs\EffortUnitOfWork.cs" />
+    <Compile Include="ContributionTests.cs" />
     <Compile Include="EnumsTests.cs" />
     <Compile Include="EventTests.cs" />
     <Compile Include="PersonTests.cs" />
@@ -98,7 +99,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Database\ContributionTypes .csv">
+    <None Include="Database\ContributionTypes.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Database\Contributions.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Database\PersonEvent.csv">

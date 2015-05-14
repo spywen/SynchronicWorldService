@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contribution.cs" />
+    <Compile Include="ContributionType.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventStatus.cs" />
     <Compile Include="EventType.cs" />

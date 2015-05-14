@@ -70,6 +70,15 @@ namespace SynchronicWorldService.Utils {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à {0} contributions have been removed.
+        /// </summary>
+        public static string DeleteAllPersonContributionsForOpenEvents_Success {
+            get {
+                return ResourceManager.GetString("DeleteAllPersonContributionsForOpenEvents_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à No event found.
         /// </summary>
         public static string Event_Not_Found {

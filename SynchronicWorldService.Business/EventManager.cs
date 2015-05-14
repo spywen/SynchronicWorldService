@@ -3,6 +3,7 @@ using SynchronicWorldService.DataAccess;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Microsoft.Practices.ObjectBuilder2;
 using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
 using Event = SynchronicWorldService.DataAccess.Event;
@@ -113,6 +114,10 @@ namespace SynchronicWorldService.Business
             }
             else
             {
+                //Remove his contributions
+                var contribsToRemove = UoW.Context.Contributions.Where(x => x.Fk_Event == id);
+                contribsToRemove.ForEach(x => UoW.Context.Contributions.Remove(x));
+
                 UoW.Context.Events.Remove(eventFound);
                 svcResponse.Result = true;
             }
@@ -157,6 +162,10 @@ namespace SynchronicWorldService.Business
                 UoW.Context.Events.Where(x => x.EventStatus.Code == Models.EventStatusCode.Closed.ToString())
                     .ToList();
 
+
+            //Remove his contributions
+            var contribsToRemove = UoW.Context.Contributions.Where(x => x.Event.EventStatus.Code == Models.EventStatusCode.Closed.ToString());
+            contribsToRemove.ForEach(x => UoW.Context.Contributions.Remove(x));
 
             eventsClosed.ForEach(x => UoW.Context.Events.Remove(x));
             response.Report.InfoList.Add(String.Format(SWResources.Closed_Events_Removed, eventsClosed.Count));
