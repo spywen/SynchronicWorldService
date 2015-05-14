@@ -2,7 +2,7 @@
 using SynchronicWorldService.DataAccess;
 using System;
 using System.Collections.Generic;
-using SynchronicWorldService.Utils;
+using System.Reflection;
 
 namespace SynchronicWorldService
 {
@@ -37,8 +37,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -64,8 +63,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -89,11 +87,11 @@ namespace SynchronicWorldService
                     mgrResponse.Result.ForEach(x => events.Add(eventManager.ConvertEventToWcfEvent(x)));
                     response.SetResponseAndReport(events, mgrResponse.Report);
                 }
+                throw new Exception("AA");
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -122,8 +120,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -152,8 +149,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;
@@ -182,8 +178,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -211,8 +206,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;
@@ -241,8 +235,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;
@@ -279,8 +272,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -306,8 +298,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -336,8 +327,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -366,8 +356,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;
@@ -398,8 +387,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;
@@ -434,8 +422,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -468,8 +455,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -495,8 +481,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -523,8 +508,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -550,8 +534,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -589,8 +572,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -622,8 +604,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
             }
             return response;
         }
@@ -652,8 +633,7 @@ namespace SynchronicWorldService
             }
             catch (Exception e)
             {
-                response.Report.ErrorList.Add(SWResources.ServiceError);
-                response.Report.LogException(e);
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
                 response.Result = false;
             }
             return response;

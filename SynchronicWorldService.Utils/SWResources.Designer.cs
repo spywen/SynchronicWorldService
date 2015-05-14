@@ -115,15 +115,6 @@ namespace SynchronicWorldService.Utils {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à A service error occured. If the problem persists please contact the administrator.
-        /// </summary>
-        public static string ServiceError {
-            get {
-                return ResourceManager.GetString("ServiceError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Recherche une chaîne localisée semblable à Event is not open.
         /// </summary>
         public static string SuscribeUserToAnEvent_EventNotOpen {
@@ -138,6 +129,15 @@ namespace SynchronicWorldService.Utils {
         public static string SuscribeUserToAnEvent_UserAlreadySuscribed {
             get {
                 return ResourceManager.GetString("SuscribeUserToAnEvent_UserAlreadySuscribed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à An unexpected error occured. If the problem persists please contact the administrator.
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
         

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Models
 {
@@ -29,8 +30,11 @@ namespace SynchronicWorldService.Models
             return ErrorList.Count;
         }
 
-        public void LogException(Exception e)
+        public void LogException(String message, Exception e)
         {
+            //1) Send message to the customer
+            ErrorList.Add(SWResources.UnexpectedError);
+            //2) Send as well logs of the exception through the WCF service
             ExceptionList.Add(e.Source);
             ExceptionList.Add(e.Message);
             ExceptionList.Add(e.StackTrace);
@@ -41,6 +45,8 @@ namespace SynchronicWorldService.Models
                 ExceptionList.Add(e.Message);
                 ExceptionList.Add(e.StackTrace);
             }
+            //3) Log the exception
+            LogManager.Logger.Error(message, e);
         }
     }
 }

@@ -135,14 +135,14 @@
   <data name="Person_Not_Found" xml:space="preserve">
     <value>No person found</value>
   </data>
-  <data name="ServiceError" xml:space="preserve">
-    <value>A service error occured. If the problem persists please contact the administrator</value>
-  </data>
   <data name="SuscribeUserToAnEvent_EventNotOpen" xml:space="preserve">
     <value>Event is not open</value>
   </data>
   <data name="SuscribeUserToAnEvent_UserAlreadySuscribed" xml:space="preserve">
     <value>User already suscribed to this event</value>
+  </data>
+  <data name="UnexpectedError" xml:space="preserve">
+    <value>An unexpected error occured. If the problem persists please contact the administrator</value>
   </data>
   <data name="Upgrade_Events_Status_From_Pending_To_Open_Done" xml:space="preserve">
     <value>{0} event(s) have been upgraded from pending status to open status</value>

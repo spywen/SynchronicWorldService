@@ -11,6 +11,7 @@ namespace SynchronicWorldService
         /// </summary>
         /// <param name="eventId"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<List<Models.Contribution>> GetEventContributions(int eventId);
 
         /// <summary>
@@ -18,6 +19,7 @@ namespace SynchronicWorldService
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<List<Models.Contribution>> GetPersonContributions(int userId);
 
         /// <summary>
@@ -25,6 +27,7 @@ namespace SynchronicWorldService
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<bool> DeleteAllPersonContributionsForOpenEvents(int userId);
     }
 }
