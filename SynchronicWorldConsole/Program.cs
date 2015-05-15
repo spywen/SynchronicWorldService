@@ -49,20 +49,6 @@ namespace SynchronicWorldConsole
                     appShouldClosed = true;
                 }
             }
-            
-
-            /*
-            var eventService = new SynchronicWorldService.EventServiceClient();
-            var events = eventService.GetAllEvents();
-
-            foreach (var eventt in events.Result)
-            {
-                Console.Write(eventt.Name);
-            }
-
-            Console.WriteLine("FIN");
-            Console.ReadLine();
-             * */
         }
     }
 }
