@@ -3,6 +3,7 @@ using SynchronicWorldService.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService
 {
@@ -87,7 +88,6 @@ namespace SynchronicWorldService
                     mgrResponse.Result.ForEach(x => events.Add(eventManager.ConvertEventToWcfEvent(x)));
                     response.SetResponseAndReport(events, mgrResponse.Report);
                 }
-                throw new Exception("AA");
             }
             catch (Exception e)
             {
