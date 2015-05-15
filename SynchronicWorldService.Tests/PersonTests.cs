@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using System.Linq;
+using SynchronicWorldService.Business;
 using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService.Test
@@ -63,7 +64,10 @@ namespace SynchronicWorldService.Test
             personToUpdate.Name = "Thomas";
             personToUpdate.Nickname = "Tom";
 
-            var response = Service.UpdatePerson(new Models.Person(personToUpdate));
+            var personMgr = ManagerFactory.Resolve<IPersonManager>();
+            personMgr.UoW = UoW;
+
+            var response = Service.UpdatePerson(personMgr.ConvertPersonToWcfPerson(personToUpdate));
 
             Assert.IsNotNull(response.Result);
             Assert.AreEqual(0, response.Report.ErrorList.Count);

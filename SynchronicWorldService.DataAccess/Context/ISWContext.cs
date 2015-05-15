@@ -3,6 +3,9 @@ using System.Data.Entity;
 
 namespace SynchronicWorldService.DataAccess
 {
+    /// <summary>
+    /// Context interface
+    /// </summary>
     public interface ISWContext : IDisposable
     {
         IDbSet<Person> People { get; set; }

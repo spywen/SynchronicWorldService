@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Microsoft.Practices.ObjectBuilder2;
-using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
 using Event = SynchronicWorldService.DataAccess.Event;
 
@@ -41,7 +40,7 @@ namespace SynchronicWorldService.Business
             var eventFound = UoW.Context.Events.Include(x => x.EventStatus).Include(x => x.EventType).Include(x => x.People).FirstOrDefault(x => x.Id == id);
             if (eventFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Event_Not_Found);
+                svcResponse.Report.LogError(SWResources.Event_Not_Found);
             }
             else
             {
@@ -72,7 +71,7 @@ namespace SynchronicWorldService.Business
                 var eventFound = UoW.Context.Events.Find(eventt.Id);
                 if (eventFound == null)
                 {
-                    svcResponse.Report.ErrorList.Add(SWResources.Event_Not_Found);
+                    svcResponse.Report.LogError(SWResources.Event_Not_Found);
                 }
                 else
                 {
@@ -109,7 +108,7 @@ namespace SynchronicWorldService.Business
             var eventFound = UoW.Context.Events.Include(x => x.People).FirstOrDefault(x => x.Id == id);
             if (eventFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Event_Not_Found);
+                svcResponse.Report.LogError(SWResources.Event_Not_Found);
                 svcResponse.Result = false;
             }
             else
@@ -168,7 +167,7 @@ namespace SynchronicWorldService.Business
             contribsToRemove.ForEach(x => UoW.Context.Contributions.Remove(x));
 
             eventsClosed.ForEach(x => UoW.Context.Events.Remove(x));
-            response.Report.InfoList.Add(String.Format(SWResources.Closed_Events_Removed, eventsClosed.Count));
+            response.Report.LogInfo(String.Format(SWResources.Closed_Events_Removed, eventsClosed.Count));
 
             return response;
         }
@@ -185,10 +184,10 @@ namespace SynchronicWorldService.Business
             var eventStatusMgr = ManagerFactory.Resolve<IEventStatusManager>();
             eventStatusMgr.UoW = UoW;
 
-            var pendingStatusResponse = eventStatusMgr.FindByCode(EventStatusCode.Pending.ToString());
+            var pendingStatusResponse = eventStatusMgr.FindByCode(Models.EventStatusCode.Pending.ToString());
             if (pendingStatusResponse.Report.GetNumberOfErrors() != 0)
             {
-                response.Report.ErrorList.Add(
+                response.Report.LogError(
                     SWResources.Upgrade_Events_Status_From_Pending_To_Open_Error);
                 response.Result = false;
             }
@@ -204,7 +203,7 @@ namespace SynchronicWorldService.Business
                     eventPending.Fk_Status = pendingStatusResponse.Result.Id;
                 }
 
-                response.Report.InfoList.Add(String.Format(SWResources.Upgrade_Events_Status_From_Pending_To_Open_Done, eventsPending.Count));
+                response.Report.LogInfo(String.Format(SWResources.Upgrade_Events_Status_From_Pending_To_Open_Done, eventsPending.Count));
             }
                 
             return response;
@@ -263,14 +262,14 @@ namespace SynchronicWorldService.Business
                 Address = eventt.Address,
                 Date = eventt.Date,
                 Fk_Status = eventt.Status.Id,
-                EventStatus = new DataAccess.EventStatus()
+                EventStatus = new EventStatus()
                 {
                     Id = eventt.Status.Id,
                     Code = eventt.Status.Code,
                     Value = eventt.Status.Value
                 },
                 Fk_Type = eventt.Type.Id,
-                EventType = new DataAccess.EventType
+                EventType = new EventType
                 {
                     Id = eventt.Type.Id,
                     Code = eventt.Type.Code,

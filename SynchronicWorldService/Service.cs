@@ -3,7 +3,6 @@ using SynchronicWorldService.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using SynchronicWorldService.Utils;
 
 namespace SynchronicWorldService
 {

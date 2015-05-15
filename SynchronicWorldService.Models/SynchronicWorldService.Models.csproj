@@ -56,10 +56,6 @@
     <Compile Include="ServiceResponse.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SynchronicWorldService.DataAccess\SynchronicWorldService.DataAccess.csproj">
-      <Project>{d2197d04-0d68-439a-9963-85f2a50a0c2e}</Project>
-      <Name>SynchronicWorldService.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SynchronicWorldService.Utils\SynchronicWorldService.Utils.csproj">
       <Project>{80e1220f-4e56-48fe-b26b-9c95204faecf}</Project>
       <Name>SynchronicWorldService.Utils</Name>

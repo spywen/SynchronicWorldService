@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Linq;
 using Microsoft.Practices.ObjectBuilder2;
 using SynchronicWorldService.DataAccess;
-using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
 using Person = SynchronicWorldService.DataAccess.Person;
 
@@ -27,7 +26,7 @@ namespace SynchronicWorldService.Business
             var personFound = UoW.Context.People.Find(id);
             if (personFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
+                svcResponse.Report.LogError(SWResources.Person_Not_Found);
             }
             else
             {
@@ -61,7 +60,7 @@ namespace SynchronicWorldService.Business
                 var personFound = UoW.Context.People.Find(person.Id);
                 if (personFound == null)
                 {
-                    svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
+                    svcResponse.Report.LogError(SWResources.Person_Not_Found);
                 }
                 else
                 {
@@ -85,7 +84,7 @@ namespace SynchronicWorldService.Business
             var personFound = UoW.Context.People.Include(x => x.Events).FirstOrDefault(x => x.Id == id);
             if (personFound == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
+                svcResponse.Report.LogError(SWResources.Person_Not_Found);
                 svcResponse.Result = false;
             }
             else
@@ -120,10 +119,10 @@ namespace SynchronicWorldService.Business
                 response.SetResponseAndReport(false, eventtResponse.Report);
                 return response;
             }
-            if (eventtResponse.Result.EventStatus.Code != EventStatusCode.Open.ToString())
+            if (eventtResponse.Result.EventStatus.Code != Models.EventStatusCode.Open.ToString())
             {
                 response.Result = false;
-                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_EventNotOpen);
+                response.Report.LogError(SWResources.SuscribeUserToAnEvent_EventNotOpen);
                 return response;
             }
 
@@ -140,7 +139,7 @@ namespace SynchronicWorldService.Business
             if (eventtResponse.Result.People.Any(x => x.Id == userId))
             {
                 response.Result = false;
-                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed);
+                response.Report.LogError(SWResources.SuscribeUserToAnEvent_UserAlreadySuscribed);
                 return response;
             }
 
@@ -167,9 +166,9 @@ namespace SynchronicWorldService.Business
                 response.SetResponseAndReport(null, eventtResponse.Report);
                 return response;
             }
-            if (eventtResponse.Result.EventStatus.Code != EventStatusCode.Open.ToString())
+            if (eventtResponse.Result.EventStatus.Code != Models.EventStatusCode.Open.ToString())
             {
-                response.Report.ErrorList.Add(SWResources.SuscribeUserToAnEvent_EventNotOpen);
+                response.Report.LogError(SWResources.SuscribeUserToAnEvent_EventNotOpen);
                 return response;
             }
 
@@ -263,13 +262,13 @@ namespace SynchronicWorldService.Business
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        Models.Person ConvertPersonToWcfPerson(DataAccess.Person person);
+        Models.Person ConvertPersonToWcfPerson(Person person);
 
         /// <summary>
         /// Convert WCF event facade to event
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        DataAccess.Person ConvertWcfPersonToPerson(Models.Person person);
+        Person ConvertWcfPersonToPerson(Models.Person person);
     }
 }

@@ -26,7 +26,7 @@ namespace SynchronicWorldService.Business
             var eventt = UoW.Context.Events.Include(x => x.Contributions).FirstOrDefault(x => x.Id == eventId);
             if (eventt == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Event_Not_Found);
+                svcResponse.Report.LogError(SWResources.Event_Not_Found);
             }
             else
             {
@@ -48,7 +48,7 @@ namespace SynchronicWorldService.Business
             var person = UoW.Context.People.Include(x => x.Contributions).FirstOrDefault(x => x.Id == userId);
             if (person == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
+                svcResponse.Report.LogError(SWResources.Person_Not_Found);
             }
             else
             {
@@ -70,13 +70,13 @@ namespace SynchronicWorldService.Business
             var person = UoW.Context.People.Include(x => x.Contributions.Select(y => y.Event).Select(y => y.EventStatus)).FirstOrDefault(x => x.Id == userId);
             if (person == null)
             {
-                svcResponse.Report.ErrorList.Add(SWResources.Person_Not_Found);
+                svcResponse.Report.LogError(SWResources.Person_Not_Found);
                 svcResponse.Result = false;
             }
             else
             {
                 var personContribsForOpenEvents = person.Contributions.Where(x => x.Event.EventStatus.Code == Models.EventStatusCode.Open.ToString()).ToList();
-                svcResponse.Report.InfoList.Add(String.Format(SWResources.DeleteAllPersonContributionsForOpenEvents_Success, personContribsForOpenEvents.Count));
+                svcResponse.Report.LogInfo(String.Format(SWResources.DeleteAllPersonContributionsForOpenEvents_Success, personContribsForOpenEvents.Count));
                 foreach (var contrib in personContribsForOpenEvents)
                 {
                     UoW.Context.Contributions.Remove(contrib);

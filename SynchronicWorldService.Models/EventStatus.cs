@@ -1,25 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace SynchronicWorldService.Models
 {
     [DataContract]
     public class EventStatus
     {
-        public EventStatus() { }
-
-        public EventStatus(DataAccess.EventStatus eventStatus)
-        {
-            this.Id = eventStatus.Id;
-            this.Code = eventStatus.Code;
-            this.Value = eventStatus.Value;
-        }
-
-
         [DataMember]
         public int Id { get; set; }
         [DataMember]

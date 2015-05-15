@@ -43,6 +43,4 @@ namespace SynchronicWorldService.Utils
         }
         #endregion
     }
-
-
 }

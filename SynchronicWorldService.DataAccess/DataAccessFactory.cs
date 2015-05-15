@@ -2,6 +2,9 @@
 
 namespace SynchronicWorldService.DataAccess
 {
+    /// <summary>
+    /// Manager factory for dependencies injections of the dataAccess classes
+    /// </summary>
     public class DataAccessFactory
     {
         #region Variables
@@ -60,8 +63,6 @@ namespace SynchronicWorldService.DataAccess
         /// </summary>
         public static void SetDefaultDependencies()
         {
-            //var test = new SWContext();
-            //test.Entry(new Event()).State = System.Data.Entity.EntityState.
             Container.RegisterType<IUnitOfWork, UnitOfWork>(new TransientLifetimeManager());
             Container.RegisterType<ISWContext, SWContext>(new TransientLifetimeManager());
             Container.RegisterType<SWContext>(new InjectionConstructor());

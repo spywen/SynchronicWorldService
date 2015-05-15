@@ -39,7 +39,7 @@ namespace SynchronicWorldService.Business
             };
             if (response.Result == null)
             {
-                response.Report.ErrorList.Add(SWResources.Event_Status_Not_Found);
+                response.Report.LogError(SWResources.Event_Status_Not_Found);
             }
             return response;
         }
@@ -105,13 +105,13 @@ namespace SynchronicWorldService.Business
         /// </summary>
         /// <param name="eventStatus"></param>
         /// <returns></returns>
-        Models.EventStatus ConvertEventStatusToWcfEventStatus(DataAccess.EventStatus eventStatus);
+        Models.EventStatus ConvertEventStatusToWcfEventStatus(EventStatus eventStatus);
 
         /// <summary>
         /// Convert WCF event status facade to event status
         /// </summary>
         /// <param name="eventStatus"></param>
         /// <returns></returns>
-        DataAccess.EventStatus ConvertWcfEventStatusToEventStatus(Models.EventStatus eventStatus);
+        EventStatus ConvertWcfEventStatusToEventStatus(Models.EventStatus eventStatus);
     }
 }

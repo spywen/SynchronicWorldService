@@ -5,8 +5,6 @@ namespace SynchronicWorldService.Models
     [DataContract]
     public class ContributionType
     {
-        public ContributionType() { }
-
         [DataMember]
         public int Id { get; set; }
         [DataMember]

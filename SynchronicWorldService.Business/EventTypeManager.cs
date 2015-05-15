@@ -38,7 +38,7 @@ namespace SynchronicWorldService.Business
             };
             if (response.Result == null)
             {
-                response.Report.ErrorList.Add(SWResources.Event_Type_Not_Found);
+                response.Report.LogError(SWResources.Event_Type_Not_Found);
             }
             return response;
         }
@@ -48,7 +48,7 @@ namespace SynchronicWorldService.Business
         /// </summary>
         /// <param name="eventType"></param>
         /// <returns></returns>
-        public Models.EventType ConvertEventTypeToWcfEventType(DataAccess.EventType eventType)
+        public Models.EventType ConvertEventTypeToWcfEventType(EventType eventType)
         {
             if (eventType == null)
                 return null;
@@ -65,7 +65,7 @@ namespace SynchronicWorldService.Business
         /// </summary>
         /// <param name="eventType"></param>
         /// <returns></returns>
-        public DataAccess.EventType ConvertWcfEventTypeToEventtype(Models.EventType eventType)
+        public EventType ConvertWcfEventTypeToEventType(Models.EventType eventType)
         {
             if (eventType == null)
                 return null;
@@ -104,13 +104,13 @@ namespace SynchronicWorldService.Business
         /// </summary>
         /// <param name="eventType"></param>
         /// <returns></returns>
-        Models.EventType ConvertEventTypeToWcfEventType(DataAccess.EventType eventType);
+        Models.EventType ConvertEventTypeToWcfEventType(EventType eventType);
 
         /// <summary>
         /// Convert WCF event type facade to event type
         /// </summary>
         /// <param name="eventType"></param>
         /// <returns></returns>
-        DataAccess.EventType ConvertWcfEventTypeToEventtype(Models.EventType eventType);
+        EventType ConvertWcfEventTypeToEventType(Models.EventType eventType);
     }
 }

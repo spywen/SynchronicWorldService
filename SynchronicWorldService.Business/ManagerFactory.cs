@@ -2,6 +2,9 @@
 
 namespace SynchronicWorldService.Business
 {
+    /// <summary>
+    /// Manager factory for dependencies injections of the business classes
+    /// </summary>
     public class ManagerFactory
     {
         #region Variables

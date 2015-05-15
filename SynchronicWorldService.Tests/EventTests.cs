@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SynchronicWorldService.Business;
 using SynchronicWorldService.Models;
 using SynchronicWorldService.Utils;
 
@@ -73,10 +74,11 @@ namespace SynchronicWorldService.Test
         public void Update()
         {
             var eventToUpdate = UoW.Context.Events.Find(1);
-
             eventToUpdate.Name = "New Name";
+            var eventMgr = ManagerFactory.Resolve<IEventManager>();
+            eventMgr.UoW = UoW;
 
-            var response = Service.UpdateEvent(new Models.Event(eventToUpdate));
+            var response = Service.UpdateEvent(eventMgr.ConvertEventToWcfEvent(eventToUpdate));
 
             Assert.IsNotNull(response.Result);
             Assert.AreEqual(0, response.Report.ErrorList.Count);
@@ -93,7 +95,10 @@ namespace SynchronicWorldService.Test
             eventToUpdate.Fk_Status = 2;
             eventToUpdate.EventStatus = UoW.Context.EventStatuses.Find(2);
 
-            var response = Service.UpdateEvent(new Models.Event(eventToUpdate));
+            var eventMgr = ManagerFactory.Resolve<IEventManager>();
+            eventMgr.UoW = UoW;
+
+            var response = Service.UpdateEvent(eventMgr.ConvertEventToWcfEvent(eventToUpdate));
 
             Assert.IsNotNull(response.Result);
             Assert.AreEqual(0, response.Report.ErrorList.Count);
