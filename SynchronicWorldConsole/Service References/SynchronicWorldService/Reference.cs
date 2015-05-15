@@ -379,16 +379,16 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] ErrorListField;
+        private System.Collections.Generic.List<string> ErrorListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] ExceptionListField;
+        private System.Collections.Generic.List<string> ExceptionListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] InfoListField;
+        private System.Collections.Generic.List<string> InfoListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] WarningListField;
+        private System.Collections.Generic.List<string> WarningListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -401,7 +401,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] ErrorList {
+        public System.Collections.Generic.List<string> ErrorList {
             get {
                 return this.ErrorListField;
             }
@@ -414,7 +414,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] ExceptionList {
+        public System.Collections.Generic.List<string> ExceptionList {
             get {
                 return this.ExceptionListField;
             }
@@ -427,7 +427,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] InfoList {
+        public System.Collections.Generic.List<string> InfoList {
             get {
                 return this.InfoListField;
             }
@@ -440,7 +440,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] WarningList {
+        public System.Collections.Generic.List<string> WarningList {
             get {
                 return this.WarningListField;
             }
@@ -475,7 +475,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SynchronicWorldConsole.SynchronicWorldService.Event[] ResultField;
+        private System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.Event> ResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -501,7 +501,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SynchronicWorldConsole.SynchronicWorldService.Event[] Result {
+        public System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.Event> Result {
             get {
                 return this.ResultField;
             }
@@ -735,7 +735,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SynchronicWorldConsole.SynchronicWorldService.EventStatus[] ResultField;
+        private System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.EventStatus> ResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -761,7 +761,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SynchronicWorldConsole.SynchronicWorldService.EventStatus[] Result {
+        public System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.EventStatus> Result {
             get {
                 return this.ResultField;
             }
@@ -857,7 +857,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SynchronicWorldConsole.SynchronicWorldService.EventType[] ResultField;
+        private System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.EventType> ResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -883,7 +883,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SynchronicWorldConsole.SynchronicWorldService.EventType[] Result {
+        public System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.EventType> Result {
             get {
                 return this.ResultField;
             }
@@ -979,7 +979,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SynchronicWorldConsole.SynchronicWorldService.Contribution[] ResultField;
+        private System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.Contribution> ResultField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1005,7 +1005,7 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SynchronicWorldConsole.SynchronicWorldService.Contribution[] Result {
+        public System.Collections.Generic.List<SynchronicWorldConsole.SynchronicWorldService.Contribution> Result {
             get {
                 return this.ResultField;
             }

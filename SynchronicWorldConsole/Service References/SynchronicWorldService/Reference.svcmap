@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ad722a8a-07c1-484c-a13c-e86bb8aed003" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="12c7aab1-7b5a-43ca-8e65-cb796ab4e7e7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -9,7 +9,9 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -22,11 +24,11 @@
     <MetadataSource Address="net.tcp://localhost:82/SynchronicWorldService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b5838f49-b8c8-4642-996b-4b43096a2f1e" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="78a9fc8f-69f5-4801-8d3c-544a08854769" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="bfe04259-c818-4dab-8046-8aec9e2c799e" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
-    <MetadataFile FileName="SynchronicWorldService.Models.xsd" MetadataType="Schema" ID="27d86645-70f4-4351-bb59-d210ac92662b" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="7347f89d-5642-49ec-bb8d-4e5cba43a7b6" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f3776bff-e262-4b8f-b0d3-441191f2fc70" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9cc0ddd5-7909-4560-9398-f80c1e7ad4cc" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d8b6af2d-1795-4530-af51-4303b8c16326" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="SynchronicWorldService.Models.xsd" MetadataType="Schema" ID="017b75f9-326b-4cbb-87da-225c6a61613e" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="70f4f8b6-4804-4c50-9ac9-81f032882ad6" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
