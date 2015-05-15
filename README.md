@@ -12,7 +12,7 @@ The development team is actually working on a new Web Service system. At the end
 You are in charge of the development of a new Web Service and a small console application to test this system.
 
 * * *
-##What have been implemented##
+##What have been implemented ?##
 * WCF service : **SynchronicWorldService project**
 * Console consumer : **SynchronicWorldConsole project**
 
