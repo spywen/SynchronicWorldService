@@ -21,7 +21,7 @@ namespace SynchronicWorldConsole
         public static void LogInfo(string message)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(message);
+            Console.WriteLine(message); 
             Console.ResetColor();
         }
     }
