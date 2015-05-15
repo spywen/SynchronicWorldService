@@ -23,10 +23,10 @@ You are in charge of the development of a new Web Service and a small console ap
 * **WCF through TCP**
 * **WCF multiple endpoints**
 * **Entity Framework**
-* **Unit Of Work** for db context (using feature)
-* **Effort testing** (integration testing)
-* **NUnit**
-* **Dependencies injection** (thanks to Microsoft.Practices.Unity dll)
+* **Unit Of Work**, for db context (using feature)
+* **Effort testing**, for integration testing
+* **NUnit**, Unit testing framework
+* **Dependencies injection**, thanks to Microsoft.Practices.Unity dll
 
 * * *
 
