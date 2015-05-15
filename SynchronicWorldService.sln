@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronicWorldService", "SynchronicWorldService\SynchronicWorldService.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronicWorldService.Utils", "SynchronicWorldService.Utils\SynchronicWorldService.Utils.csproj", "{80E1220F-4E56-48FE-B26B-9C95204FAECF}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronicWorldService.Models", "SynchronicWorldService.Models\SynchronicWorldService.Models.csproj", "{A5100A12-D637-4332-81E5-F348FDD49A27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronicWorldService.Tests", "SynchronicWorldService.Tests\SynchronicWorldService.Tests.csproj", "{DBC176DA-5961-48C4-899B-DDB09B4655C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronicWorldService.Installer", "SynchronicWorldService.Installer\SynchronicWorldService.Installer.csproj", "{B8789FC8-2B13-43D3-BB77-6DB60E15BD66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{DBC176DA-5961-48C4-899B-DDB09B4655C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBC176DA-5961-48C4-899B-DDB09B4655C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBC176DA-5961-48C4-899B-DDB09B4655C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8789FC8-2B13-43D3-BB77-6DB60E15BD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8789FC8-2B13-43D3-BB77-6DB60E15BD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8789FC8-2B13-43D3-BB77-6DB60E15BD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8789FC8-2B13-43D3-BB77-6DB60E15BD66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
