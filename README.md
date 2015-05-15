@@ -6,8 +6,6 @@ M1 Project - Supinfo Nice 2015
 
 * * *
 ##AIM of this project ?##
-<br/>
-
 >You work for a small company specialized in event organization: “Synchronic World”. The commercial team wants to create a new product. They are asking you to create a PoC (Proof of Concept or prototype).
 You will work on a new event management system. Inspired by a world famous social network, you will create an alternative supervision system, based on a web service.
 The development team is actually working on a new Web Service system. At the end all the data layer should be consume by many devices.
