@@ -1,7 +1,7 @@
-SynchronicWorldService
+Synchronic World Service
 ======================
 
-M1 Project - Supinfo Nice 2015
+M1 Project - Supinfo Nice 2015<br/>
 ***.NET - Teacher : Sir Philippe Vialatte***
 
 * * *
