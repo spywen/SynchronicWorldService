@@ -722,6 +722,574 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfEventStatusHgDy9SCH", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfArrayOfEventStatusHgDy9SCH : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.EventStatus[] ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.EventStatus[] Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfEventStatusHgDy9SCH", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfEventStatusHgDy9SCH : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.EventStatus ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.EventStatus Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfEventTypeHgDy9SCH", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfArrayOfEventTypeHgDy9SCH : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.EventType[] ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.EventType[] Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfEventTypeHgDy9SCH", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfEventTypeHgDy9SCH : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.EventType ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.EventType Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfArrayOfContributionHgDy9SCH", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfArrayOfContributionHgDy9SCH : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Contribution[] ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Contribution[] Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Contribution", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class Contribution : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FkEventField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FkPersonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.ContributionType TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FkEvent {
+            get {
+                return this.FkEventField;
+            }
+            set {
+                if ((this.FkEventField.Equals(value) != true)) {
+                    this.FkEventField = value;
+                    this.RaisePropertyChanged("FkEvent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FkPerson {
+            get {
+                return this.FkPersonField;
+            }
+            set {
+                if ((this.FkPersonField.Equals(value) != true)) {
+                    this.FkPersonField = value;
+                    this.RaisePropertyChanged("FkPerson");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.ContributionType Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContributionType", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ContributionType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Code {
+            get {
+                return this.CodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CodeField, value) != true)) {
+                    this.CodeField = value;
+                    this.RaisePropertyChanged("Code");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResponseOfstring", Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models")]
+    [System.SerializableAttribute()]
+    public partial class ServiceResponseOfstring : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SynchronicWorldConsole.SynchronicWorldService.Report ReportField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SynchronicWorldConsole.SynchronicWorldService.Report Report {
+            get {
+                return this.ReportField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReportField, value) != true)) {
+                    this.ReportField = value;
+                    this.RaisePropertyChanged("Report");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SynchronicWorldService.IEventService")]
     public interface IEventService {
@@ -911,6 +1479,221 @@ namespace SynchronicWorldConsole.SynchronicWorldService {
         
         public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean> DeletePersonAsync(int id) {
             return base.Channel.DeletePersonAsync(id);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SynchronicWorldService.IEnumsService")]
+    public interface IEnumsService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/GetAllEventsStatus", ReplyAction="http://tempuri.org/IEnumsService/GetAllEventsStatusResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventStatusHgDy9SCH GetAllEventsStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/GetAllEventsStatus", ReplyAction="http://tempuri.org/IEnumsService/GetAllEventsStatusResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventStatusHgDy9SCH> GetAllEventsStatusAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/FindEventStatusByCode", ReplyAction="http://tempuri.org/IEnumsService/FindEventStatusByCodeResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventStatusHgDy9SCH FindEventStatusByCode(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/FindEventStatusByCode", ReplyAction="http://tempuri.org/IEnumsService/FindEventStatusByCodeResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventStatusHgDy9SCH> FindEventStatusByCodeAsync(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/GetAllEventsType", ReplyAction="http://tempuri.org/IEnumsService/GetAllEventsTypeResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH GetAllEventsType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/GetAllEventsType", ReplyAction="http://tempuri.org/IEnumsService/GetAllEventsTypeResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH> GetAllEventsTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/FindEventTypeByCode", ReplyAction="http://tempuri.org/IEnumsService/FindEventTypeByCodeResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventTypeHgDy9SCH FindEventTypeByCode(string code);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEnumsService/FindEventTypeByCode", ReplyAction="http://tempuri.org/IEnumsService/FindEventTypeByCodeResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventTypeHgDy9SCH> FindEventTypeByCodeAsync(string code);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IEnumsServiceChannel : SynchronicWorldConsole.SynchronicWorldService.IEnumsService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EnumsServiceClient : System.ServiceModel.ClientBase<SynchronicWorldConsole.SynchronicWorldService.IEnumsService>, SynchronicWorldConsole.SynchronicWorldService.IEnumsService {
+        
+        public EnumsServiceClient() {
+        }
+        
+        public EnumsServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public EnumsServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EnumsServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public EnumsServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventStatusHgDy9SCH GetAllEventsStatus() {
+            return base.Channel.GetAllEventsStatus();
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventStatusHgDy9SCH> GetAllEventsStatusAsync() {
+            return base.Channel.GetAllEventsStatusAsync();
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventStatusHgDy9SCH FindEventStatusByCode(string code) {
+            return base.Channel.FindEventStatusByCode(code);
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventStatusHgDy9SCH> FindEventStatusByCodeAsync(string code) {
+            return base.Channel.FindEventStatusByCodeAsync(code);
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH GetAllEventsType() {
+            return base.Channel.GetAllEventsType();
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH> GetAllEventsTypeAsync() {
+            return base.Channel.GetAllEventsTypeAsync();
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventTypeHgDy9SCH FindEventTypeByCode(string code) {
+            return base.Channel.FindEventTypeByCode(code);
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventTypeHgDy9SCH> FindEventTypeByCodeAsync(string code) {
+            return base.Channel.FindEventTypeByCodeAsync(code);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SynchronicWorldService.IContributionService")]
+    public interface IContributionService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/GetEventContributions", ReplyAction="http://tempuri.org/IContributionService/GetEventContributionsResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH GetEventContributions(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/GetEventContributions", ReplyAction="http://tempuri.org/IContributionService/GetEventContributionsResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH> GetEventContributionsAsync(int eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/GetPersonContributions", ReplyAction="http://tempuri.org/IContributionService/GetPersonContributionsResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH GetPersonContributions(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/GetPersonContributions", ReplyAction="http://tempuri.org/IContributionService/GetPersonContributionsResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH> GetPersonContributionsAsync(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/DeleteAllPersonContributionsForOpenEvents" +
+            "", ReplyAction="http://tempuri.org/IContributionService/DeleteAllPersonContributionsForOpenEvents" +
+            "Response")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean DeleteAllPersonContributionsForOpenEvents(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IContributionService/DeleteAllPersonContributionsForOpenEvents" +
+            "", ReplyAction="http://tempuri.org/IContributionService/DeleteAllPersonContributionsForOpenEvents" +
+            "Response")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean> DeleteAllPersonContributionsForOpenEventsAsync(int userId);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IContributionServiceChannel : SynchronicWorldConsole.SynchronicWorldService.IContributionService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ContributionServiceClient : System.ServiceModel.ClientBase<SynchronicWorldConsole.SynchronicWorldService.IContributionService>, SynchronicWorldConsole.SynchronicWorldService.IContributionService {
+        
+        public ContributionServiceClient() {
+        }
+        
+        public ContributionServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ContributionServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ContributionServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ContributionServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH GetEventContributions(int eventId) {
+            return base.Channel.GetEventContributions(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH> GetEventContributionsAsync(int eventId) {
+            return base.Channel.GetEventContributionsAsync(eventId);
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH GetPersonContributions(int userId) {
+            return base.Channel.GetPersonContributions(userId);
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH> GetPersonContributionsAsync(int userId) {
+            return base.Channel.GetPersonContributionsAsync(userId);
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean DeleteAllPersonContributionsForOpenEvents(int userId) {
+            return base.Channel.DeleteAllPersonContributionsForOpenEvents(userId);
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean> DeleteAllPersonContributionsForOpenEventsAsync(int userId) {
+            return base.Channel.DeleteAllPersonContributionsForOpenEventsAsync(userId);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SynchronicWorldService.IInfoService")]
+    public interface IInfoService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInfoService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IInfoService/GetDatabaseStatusResponse")]
+        SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring GetDatabaseStatus();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInfoService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IInfoService/GetDatabaseStatusResponse")]
+        System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring> GetDatabaseStatusAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IInfoServiceChannel : SynchronicWorldConsole.SynchronicWorldService.IInfoService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class InfoServiceClient : System.ServiceModel.ClientBase<SynchronicWorldConsole.SynchronicWorldService.IInfoService>, SynchronicWorldConsole.SynchronicWorldService.IInfoService {
+        
+        public InfoServiceClient() {
+        }
+        
+        public InfoServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public InfoServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public InfoServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public InfoServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring GetDatabaseStatus() {
+            return base.Channel.GetDatabaseStatus();
+        }
+        
+        public System.Threading.Tasks.Task<SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring> GetDatabaseStatusAsync() {
+            return base.Channel.GetDatabaseStatusAsync();
         }
     }
 }

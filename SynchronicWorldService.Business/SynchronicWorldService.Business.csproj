@@ -53,6 +53,7 @@
     <Compile Include="EventManager.cs" />
     <Compile Include="EventStatusManager.cs" />
     <Compile Include="EventTypeManager.cs" />
+    <Compile Include="InfoManager.cs" />
     <Compile Include="ManagerFactory.cs" />
     <Compile Include="PersonManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

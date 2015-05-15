@@ -68,6 +68,7 @@ namespace SynchronicWorldService.Business
             Container.RegisterType<IEventStatusManager, EventStatusManager>(new TransientLifetimeManager());
             Container.RegisterType<IEventTypeManager, EventTypeManager>(new TransientLifetimeManager());
             Container.RegisterType<IContributionManager, ContributionManager>(new TransientLifetimeManager());
+            Container.RegisterType<IInfoManager, InfoManager>(new TransientLifetimeManager());
         } 
 
         #endregion

@@ -4,3 +4,4 @@
 **/*.suo
 **/*.mdffatal
 .SynchronicWorldService.boltdata/**/*
+*.DotSettings.user

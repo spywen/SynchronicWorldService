@@ -112,4 +112,131 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfPersonHgDy9SCH" nillable="true" type="tns:ServiceResponseOfPersonHgDy9SCH" />
+  <xs:complexType name="ServiceResponseOfArrayOfEventStatusHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfEventStatus" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfEventStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfEventStatusHgDy9SCH" nillable="true" type="tns:ServiceResponseOfArrayOfEventStatusHgDy9SCH" />
+  <xs:complexType name="ArrayOfEventStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventStatus" nillable="true" type="tns:EventStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventStatus" nillable="true" type="tns:ArrayOfEventStatus" />
+  <xs:complexType name="ServiceResponseOfEventStatusHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EventStatus" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:EventStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfEventStatusHgDy9SCH" nillable="true" type="tns:ServiceResponseOfEventStatusHgDy9SCH" />
+  <xs:complexType name="ServiceResponseOfArrayOfEventTypeHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfEventType" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfEventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfEventTypeHgDy9SCH" nillable="true" type="tns:ServiceResponseOfArrayOfEventTypeHgDy9SCH" />
+  <xs:complexType name="ArrayOfEventType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventType" nillable="true" type="tns:EventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventType" nillable="true" type="tns:ArrayOfEventType" />
+  <xs:complexType name="ServiceResponseOfEventTypeHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EventType" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:EventType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfEventTypeHgDy9SCH" nillable="true" type="tns:ServiceResponseOfEventTypeHgDy9SCH" />
+  <xs:complexType name="ServiceResponseOfArrayOfContributionHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfContribution" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfContribution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfContributionHgDy9SCH" nillable="true" type="tns:ServiceResponseOfArrayOfContributionHgDy9SCH" />
+  <xs:complexType name="ArrayOfContribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contribution" nillable="true" type="tns:Contribution" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContribution" nillable="true" type="tns:ArrayOfContribution" />
+  <xs:complexType name="Contribution">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FkEvent" type="xs:int" />
+      <xs:element minOccurs="0" name="FkPerson" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="tns:ContributionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contribution" nillable="true" type="tns:Contribution" />
+  <xs:complexType name="ContributionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContributionType" nillable="true" type="tns:ContributionType" />
+  <xs:complexType name="ServiceResponseOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfstring" nillable="true" type="tns:ServiceResponseOfstring" />
 </xs:schema>

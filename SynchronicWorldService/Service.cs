@@ -638,4 +638,37 @@ namespace SynchronicWorldService
             return response;
         }
     }
+
+    /// <summary>
+    /// Enums service
+    /// </summary>
+    public partial class Service : IInfoService
+    {
+        /// <summary>
+        /// See interface
+        /// </summary>
+        /// <returns></returns>
+        public Models.ServiceResponse<String> GetDatabaseStatus()
+        {
+            var response = new Models.ServiceResponse<String>();
+            try
+            {
+                using (var uow = DataAccessFactory.Resolve<IUnitOfWork>())
+                {
+                    var infoManager = ManagerFactory.Resolve<IInfoManager>();
+                    infoManager.UoW = uow;
+                    var mgrResponse = infoManager.GetDatabaseStatus();
+
+                    response.SetResponseAndReport(mgrResponse.Result, mgrResponse.Report);
+                }
+            }
+            catch (Exception e)
+            {
+                response.Report.LogException(MethodBase.GetCurrentMethod().Name, e);
+            }
+            return response;
+        }
+
+    }
+
 }

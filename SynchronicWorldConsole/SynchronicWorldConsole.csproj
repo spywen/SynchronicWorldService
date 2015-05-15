@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionExecutor.cs" />
+    <Compile Include="Actions.cs" />
+    <Compile Include="ConsoleWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SynchronicWorldService\Reference.cs">
@@ -63,7 +66,16 @@
     <None Include="Service References\SynchronicWorldService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfContributionHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventStatusHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean.datasource">
@@ -72,7 +84,16 @@
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventHgDy9SCH.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventStatusHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfEventTypeHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfPersonHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldService.Models.xsd">
