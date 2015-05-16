@@ -1,4 +1,4 @@
-Synchronic World Service
+﻿Synchronic World Service
 ======================
 
 M1 Project - Supinfo Nice 2015<br/>
@@ -27,6 +27,7 @@ You are in charge of the development of a new Web Service and a small console ap
 * **Effort testing**, for integration testing
 * **NUnit**, Unit testing framework
 * **Dependencies injection**, thanks to Microsoft.Practices.Unity dll
+* **WCF Installer**, Not able to install it, tcp security/configs issues seems to happened...
 
 * * *
 

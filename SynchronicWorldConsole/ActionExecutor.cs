@@ -55,10 +55,11 @@ namespace SynchronicWorldConsole
         /// Analyse report and display it into the console
         /// </summary>
         /// <param name="report"></param>
-        private void AnalyseReport(SynchronicWorldService.Report report)
+        private bool AnalyseReport(SynchronicWorldService.Report report)
         {
             report.ErrorList.ForEach(ConsoleWriter.LogError);
             report.ErrorList.ForEach(ConsoleWriter.LogInfo);
+            return report.ErrorList.Count == 0;
         }
 
         #region events
