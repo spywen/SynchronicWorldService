@@ -134,12 +134,18 @@ namespace SynchronicWorldService.Business
 
             //WHERE
             var query = UoW.Context.Events.Where( x =>
-                (searchObject.Name == null || x.Name.Equals(searchObject.Name)) &&
+                (searchObject.Name == null || x.Name.ToLower().Contains(searchObject.Name.ToLower())) &&
                 (searchObject.Date == null || (x.Date.Year == searchObject.Date.Value.Year && x.Date.Month == searchObject.Date.Value.Month && x.Date.Day == searchObject.Date.Value.Day)) &&
-                (searchObject.StartDate == null || (x.Date.Year >= searchObject.StartDate.Value.Year && x.Date.Month >= searchObject.StartDate.Value.Month && x.Date.Day >= searchObject.StartDate.Value.Day)) &&
-                (searchObject.EndDate == null || (x.Date.Year <= searchObject.EndDate.Value.Year && x.Date.Month <= searchObject.EndDate.Value.Month && x.Date.Day <= searchObject.EndDate.Value.Day)) &&
-                (searchObject.EventStatusCode == null || x.EventStatus.Code.Equals(searchObject.EventStatusCode)) &&
-                (searchObject.EventTypeCode == null || x.EventType.Code.Equals(searchObject.EventTypeCode))
+                (searchObject.StartDate == null || (
+                    (x.Date.Year > searchObject.StartDate.Value.Year) ||
+                    (x.Date.Year == searchObject.StartDate.Value.Year && x.Date.Month > searchObject.StartDate.Value.Month) ||
+                    (x.Date.Year == searchObject.StartDate.Value.Year && x.Date.Month == searchObject.StartDate.Value.Month && x.Date.Day >= searchObject.StartDate.Value.Day))) &&
+                (searchObject.EndDate == null || (
+                    (x.Date.Year < searchObject.EndDate.Value.Year) ||
+                    (x.Date.Year == searchObject.EndDate.Value.Year && x.Date.Month < searchObject.EndDate.Value.Month) ||
+                    (x.Date.Year == searchObject.EndDate.Value.Year && x.Date.Month == searchObject.EndDate.Value.Month && x.Date.Day <= searchObject.EndDate.Value.Day))) &&
+                (searchObject.EventStatusCode == null || x.EventStatus.Code.Equals(searchObject.EventStatusCode.ToString())) &&
+                (searchObject.EventTypeCode == null || x.EventType.Code.Equals(searchObject.EventTypeCode.ToString()))
             );
 
             //ORDER BY
@@ -158,7 +164,7 @@ namespace SynchronicWorldService.Business
             var response = new Models.ServiceResponse<bool>{ Result = true };
 
             var eventsClosed =
-                UoW.Context.Events.Where(x => x.EventStatus.Code == Models.EventStatusCode.Closed.ToString())
+                UoW.Context.Events.Include(x => x.People).Where(x => x.EventStatus.Code == Models.EventStatusCode.Closed.ToString())
                     .ToList();
 
 

@@ -89,6 +89,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfboolean" nillable="true" type="tns:ServiceResponseOfboolean" />
+  <xs:simpleType name="EventStatusCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Open" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="Pending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventStatusCode" nillable="true" type="tns:EventStatusCode" />
+  <xs:simpleType name="EventTypeCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Party" />
+      <xs:enumeration value="Lunch" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EventTypeCode" nillable="true" type="tns:EventTypeCode" />
   <xs:complexType name="Person">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
@@ -112,6 +127,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ServiceResponseOfPersonHgDy9SCH" nillable="true" type="tns:ServiceResponseOfPersonHgDy9SCH" />
+  <xs:complexType name="ServiceResponseOfArrayOfPersonHgDy9SCH">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ServiceResponseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPerson" Namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Report" nillable="true" type="tns:Report" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfPerson" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseOfArrayOfPersonHgDy9SCH" nillable="true" type="tns:ServiceResponseOfArrayOfPersonHgDy9SCH" />
+  <xs:complexType name="ArrayOfPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
   <xs:complexType name="ServiceResponseOfArrayOfEventStatusHgDy9SCH">
     <xs:annotation>
       <xs:appinfo>

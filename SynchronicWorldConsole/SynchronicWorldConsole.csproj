@@ -78,6 +78,9 @@
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfEventTypeHgDy9SCH.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfArrayOfPersonHgDy9SCH.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfboolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -95,6 +98,9 @@
     </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldConsole.SynchronicWorldService.ServiceResponseOfstring.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SynchronicWorldService\SynchronicWorldService.Models.Facades.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SynchronicWorldService\SynchronicWorldService.Models.xsd">
       <SubType>Designer</SubType>

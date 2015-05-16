@@ -38,12 +38,12 @@ namespace SynchronicWorldService.Models.Facades
         /// Search by event status
         /// </summary>
         [DataMember]
-        public string EventStatusCode { get; set; }
+        public EventStatusCode? EventStatusCode { get; set; }
 
         /// <summary>
         /// Search by event type
         /// </summary>
         [DataMember]
-        public string EventTypeCode { get; set; }
+        public EventTypeCode? EventTypeCode { get; set; }
     }
 }

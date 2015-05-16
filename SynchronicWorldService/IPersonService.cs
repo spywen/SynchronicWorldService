@@ -44,6 +44,7 @@ namespace SynchronicWorldService
         /// <param name="userId"></param>
         /// <param name="eventId"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<bool> SuscribeUserToAnOpenEvent(int userId, int eventId);
 
         /// <summary>
@@ -51,6 +52,7 @@ namespace SynchronicWorldService
         /// </summary>
         /// <param name="eventId"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<List<Models.Person>> FindPeopleLinkToOpenEvent(int eventId);
     }
 }

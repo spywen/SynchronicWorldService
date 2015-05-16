@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="NetTcpBinding_IEventService_policy">
+  <wsp:Policy wsu:Id="Events_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
@@ -33,7 +33,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IPersonService_policy">
+  <wsp:Policy wsu:Id="Persons_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
@@ -66,7 +66,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IEnumsService_policy">
+  <wsp:Policy wsu:Id="Enums_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
@@ -99,7 +99,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IContributionService_policy">
+  <wsp:Policy wsu:Id="Contributions_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
@@ -132,7 +132,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="NetTcpBinding_IInfoService_policy">
+  <wsp:Policy wsu:Id="Info_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
@@ -171,6 +171,7 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models.Facades" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEventService_CreateEvent_InputMessage">
@@ -203,6 +204,24 @@
   <wsdl:message name="IEventService_DeleteEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
   </wsdl:message>
+  <wsdl:message name="IEventService_SearchForEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchForEvents" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_SearchForEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchForEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_DeleteClosedEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClosedEvents" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_DeleteClosedEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClosedEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_UpgradePendingEventsAsOpen_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpgradePendingEventsAsOpen" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_UpgradePendingEventsAsOpen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpgradePendingEventsAsOpenResponse" />
+  </wsdl:message>
   <wsdl:message name="IPersonService_CreatePerson_InputMessage">
     <wsdl:part name="parameters" element="tns:CreatePerson" />
   </wsdl:message>
@@ -226,6 +245,18 @@
   </wsdl:message>
   <wsdl:message name="IPersonService_DeletePerson_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_SuscribeUserToAnOpenEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribeUserToAnOpenEvent" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_SuscribeUserToAnOpenEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuscribeUserToAnOpenEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindPeopleLinkToOpenEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindPeopleLinkToOpenEvent" />
+  </wsdl:message>
+  <wsdl:message name="IPersonService_FindPeopleLinkToOpenEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindPeopleLinkToOpenEventResponse" />
   </wsdl:message>
   <wsdl:message name="IEnumsService_GetAllEventsStatus_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEventsStatus" />
@@ -296,6 +327,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/DeleteEvent" message="tns:IEventService_DeleteEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventService/DeleteEventResponse" message="tns:IEventService_DeleteEvent_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SearchForEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventService/SearchForEvents" message="tns:IEventService_SearchForEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventService/SearchForEventsResponse" message="tns:IEventService_SearchForEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClosedEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventService/DeleteClosedEvents" message="tns:IEventService_DeleteClosedEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventService/DeleteClosedEventsResponse" message="tns:IEventService_DeleteClosedEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpgradePendingEventsAsOpen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventService/UpgradePendingEventsAsOpen" message="tns:IEventService_UpgradePendingEventsAsOpen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventService/UpgradePendingEventsAsOpenResponse" message="tns:IEventService_UpgradePendingEventsAsOpen_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IPersonService">
     <wsdl:operation name="CreatePerson">
@@ -313,6 +356,14 @@
     <wsdl:operation name="DeletePerson">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/DeletePerson" message="tns:IPersonService_DeletePerson_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/DeletePersonResponse" message="tns:IPersonService_DeletePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SuscribeUserToAnOpenEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/SuscribeUserToAnOpenEvent" message="tns:IPersonService_SuscribeUserToAnOpenEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/SuscribeUserToAnOpenEventResponse" message="tns:IPersonService_SuscribeUserToAnOpenEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPeopleLinkToOpenEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonService/FindPeopleLinkToOpenEvent" message="tns:IPersonService_FindPeopleLinkToOpenEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonService/FindPeopleLinkToOpenEventResponse" message="tns:IPersonService_FindPeopleLinkToOpenEvent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IEnumsService">
@@ -353,8 +404,8 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IInfoService/GetDatabaseStatusResponse" message="tns:IInfoService_GetDatabaseStatus_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="NetTcpBinding_IEventService" type="tns:IEventService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IEventService_policy">
+  <wsdl:binding name="Events" type="tns:IEventService">
+    <wsp:PolicyReference URI="#Events_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="CreateEvent">
@@ -402,9 +453,36 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SearchForEvents">
+      <soap12:operation soapAction="http://tempuri.org/IEventService/SearchForEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClosedEvents">
+      <soap12:operation soapAction="http://tempuri.org/IEventService/DeleteClosedEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpgradePendingEventsAsOpen">
+      <soap12:operation soapAction="http://tempuri.org/IEventService/UpgradePendingEventsAsOpen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IPersonService" type="tns:IPersonService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IPersonService_policy">
+  <wsdl:binding name="Persons" type="tns:IPersonService">
+    <wsp:PolicyReference URI="#Persons_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="CreatePerson">
@@ -443,9 +521,27 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SuscribeUserToAnOpenEvent">
+      <soap12:operation soapAction="http://tempuri.org/IPersonService/SuscribeUserToAnOpenEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPeopleLinkToOpenEvent">
+      <soap12:operation soapAction="http://tempuri.org/IPersonService/FindPeopleLinkToOpenEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IEnumsService" type="tns:IEnumsService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IEnumsService_policy">
+  <wsdl:binding name="Enums" type="tns:IEnumsService">
+    <wsp:PolicyReference URI="#Enums_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetAllEventsStatus">
@@ -485,8 +581,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IContributionService" type="tns:IContributionService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IContributionService_policy">
+  <wsdl:binding name="Contributions" type="tns:IContributionService">
+    <wsp:PolicyReference URI="#Contributions_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetEventContributions">
@@ -517,8 +613,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="NetTcpBinding_IInfoService" type="tns:IInfoService">
-    <wsp:PolicyReference URI="#NetTcpBinding_IInfoService_policy">
+  <wsdl:binding name="Info" type="tns:IInfoService">
+    <wsp:PolicyReference URI="#Info_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetDatabaseStatus">
@@ -532,7 +628,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service">
-    <wsdl:port name="NetTcpBinding_IEventService" binding="tns:NetTcpBinding_IEventService">
+    <wsdl:port name="Events" binding="tns:Events">
       <soap12:address location="net.tcp://localhost:82/events" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:82/events</wsa10:Address>
@@ -542,7 +638,7 @@
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IPersonService" binding="tns:NetTcpBinding_IPersonService">
+    <wsdl:port name="Persons" binding="tns:Persons">
       <soap12:address location="net.tcp://localhost:82/persons" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:82/persons</wsa10:Address>
@@ -552,7 +648,7 @@
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IEnumsService" binding="tns:NetTcpBinding_IEnumsService">
+    <wsdl:port name="Enums" binding="tns:Enums">
       <soap12:address location="net.tcp://localhost:82/enums" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:82/enums</wsa10:Address>
@@ -562,7 +658,7 @@
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IContributionService" binding="tns:NetTcpBinding_IContributionService">
+    <wsdl:port name="Contributions" binding="tns:Contributions">
       <soap12:address location="net.tcp://localhost:82/contributions" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:82/contributions</wsa10:Address>
@@ -572,7 +668,7 @@
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
-    <wsdl:port name="NetTcpBinding_IInfoService" binding="tns:NetTcpBinding_IInfoService">
+    <wsdl:port name="Info" binding="tns:Info">
       <soap12:address location="net.tcp://localhost:82/info" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:82/info</wsa10:Address>

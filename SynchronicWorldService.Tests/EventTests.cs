@@ -176,10 +176,11 @@ namespace SynchronicWorldService.Test
         {
             yield return new object[] { new Models.Facades.EventSearchFacade(), 5, 5};
             yield return new object[] { new Models.Facades.EventSearchFacade { Name = "First Event" }, 1, 1 };
+            yield return new object[] { new Models.Facades.EventSearchFacade { Name = "eVent" }, 5, 5 };
             yield return new object[] { new Models.Facades.EventSearchFacade { Date = new DateTime(2016,12,06)}, 3, 1 };
-            yield return new object[] { new Models.Facades.EventSearchFacade { StartDate = new DateTime(2000, 12, 06), EndDate = new DateTime(2016, 12, 20) }, 3, 3 };
-            yield return new object[] { new Models.Facades.EventSearchFacade { EventStatusCode = Models.EventStatusCode.Pending.ToString()}, 4, 1 };
-            yield return new object[] { new Models.Facades.EventSearchFacade { EventTypeCode = Models.EventTypeCode.Party.ToString() }, 4, 2 };
+            yield return new object[] { new Models.Facades.EventSearchFacade { StartDate = new DateTime(2015, 1, 1), EndDate = new DateTime(2016, 1, 1) }, 2, 1 };
+            yield return new object[] { new Models.Facades.EventSearchFacade { EventStatusCode = Models.EventStatusCode.Pending}, 4, 1 };
+            yield return new object[] { new Models.Facades.EventSearchFacade { EventTypeCode = Models.EventTypeCode.Party }, 4, 2 };
         }
 
         #endregion

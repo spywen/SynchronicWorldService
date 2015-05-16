@@ -29,6 +29,7 @@
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d8b6af2d-1795-4530-af51-4303b8c16326" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
     <MetadataFile FileName="SynchronicWorldService.Models.xsd" MetadataType="Schema" ID="017b75f9-326b-4cbb-87da-225c6a61613e" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="70f4f8b6-4804-4c50-9ac9-81f032882ad6" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
+    <MetadataFile FileName="SynchronicWorldService.Models.Facades.xsd" MetadataType="Schema" ID="f9f3fa9c-ed49-4ee1-ae2e-0bffcbb6faf4" SourceId="1" SourceUrl="net.tcp://localhost:82/SynchronicWorldService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

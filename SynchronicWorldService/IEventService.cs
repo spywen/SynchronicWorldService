@@ -50,18 +50,21 @@ namespace SynchronicWorldService
         /// </summary>
         /// <param name="searchObject"></param>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<List<Models.Event>> SearchForEvents(Models.Facades.EventSearchFacade searchObject);
 
         /// <summary>
         /// Delete all events closed
         /// </summary>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<bool> DeleteClosedEvents();
 
         /// <summary>
         /// Upgrade pending events as open
         /// </summary>
         /// <returns></returns>
+        [OperationContract]
         Models.ServiceResponse<bool> UpgradePendingEventsAsOpen();
     }
 

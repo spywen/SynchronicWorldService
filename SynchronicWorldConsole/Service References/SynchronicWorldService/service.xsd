@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models.Facades" />
   <xs:element name="CreateEvent">
     <xs:complexType>
       <xs:sequence>
@@ -69,17 +70,55 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SearchForEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models.Facades" minOccurs="0" name="searchObject" nillable="true" type="q8:EventSearchFacade" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchForEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="SearchForEventsResult" nillable="true" type="q9:ServiceResponseOfArrayOfEventHgDy9SCH" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClosedEvents">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClosedEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="DeleteClosedEventsResult" nillable="true" type="q10:ServiceResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpgradePendingEventsAsOpen">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpgradePendingEventsAsOpenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="UpgradePendingEventsAsOpenResult" nillable="true" type="q11:ServiceResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CreatePerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="person" nillable="true" type="q8:Person" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="person" nillable="true" type="q12:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreatePersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="CreatePersonResult" nillable="true" type="q9:ServiceResponseOfPersonHgDy9SCH" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="CreatePersonResult" nillable="true" type="q13:ServiceResponseOfPersonHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,21 +132,21 @@
   <xs:element name="GetPersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetPersonResult" nillable="true" type="q10:ServiceResponseOfPersonHgDy9SCH" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetPersonResult" nillable="true" type="q14:ServiceResponseOfPersonHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdatePerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="person" nillable="true" type="q11:Person" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="person" nillable="true" type="q15:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdatePersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="UpdatePersonResult" nillable="true" type="q12:ServiceResponseOfPersonHgDy9SCH" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="UpdatePersonResult" nillable="true" type="q16:ServiceResponseOfPersonHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -121,7 +160,36 @@
   <xs:element name="DeletePersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="DeletePersonResult" nillable="true" type="q13:ServiceResponseOfboolean" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="DeletePersonResult" nillable="true" type="q17:ServiceResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuscribeUserToAnOpenEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SuscribeUserToAnOpenEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="SuscribeUserToAnOpenEventResult" nillable="true" type="q18:ServiceResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPeopleLinkToOpenEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPeopleLinkToOpenEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="FindPeopleLinkToOpenEventResult" nillable="true" type="q19:ServiceResponseOfArrayOfPersonHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -133,7 +201,7 @@
   <xs:element name="GetAllEventsStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetAllEventsStatusResult" nillable="true" type="q14:ServiceResponseOfArrayOfEventStatusHgDy9SCH" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetAllEventsStatusResult" nillable="true" type="q20:ServiceResponseOfArrayOfEventStatusHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -147,7 +215,7 @@
   <xs:element name="FindEventStatusByCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="FindEventStatusByCodeResult" nillable="true" type="q15:ServiceResponseOfEventStatusHgDy9SCH" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="FindEventStatusByCodeResult" nillable="true" type="q21:ServiceResponseOfEventStatusHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -159,7 +227,7 @@
   <xs:element name="GetAllEventsTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetAllEventsTypeResult" nillable="true" type="q16:ServiceResponseOfArrayOfEventTypeHgDy9SCH" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetAllEventsTypeResult" nillable="true" type="q22:ServiceResponseOfArrayOfEventTypeHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -173,7 +241,7 @@
   <xs:element name="FindEventTypeByCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="FindEventTypeByCodeResult" nillable="true" type="q17:ServiceResponseOfEventTypeHgDy9SCH" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="FindEventTypeByCodeResult" nillable="true" type="q23:ServiceResponseOfEventTypeHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -187,7 +255,7 @@
   <xs:element name="GetEventContributionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetEventContributionsResult" nillable="true" type="q18:ServiceResponseOfArrayOfContributionHgDy9SCH" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetEventContributionsResult" nillable="true" type="q24:ServiceResponseOfArrayOfContributionHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -201,7 +269,7 @@
   <xs:element name="GetPersonContributionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetPersonContributionsResult" nillable="true" type="q19:ServiceResponseOfArrayOfContributionHgDy9SCH" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetPersonContributionsResult" nillable="true" type="q25:ServiceResponseOfArrayOfContributionHgDy9SCH" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -215,7 +283,7 @@
   <xs:element name="DeleteAllPersonContributionsForOpenEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="DeleteAllPersonContributionsForOpenEventsResult" nillable="true" type="q20:ServiceResponseOfboolean" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="DeleteAllPersonContributionsForOpenEventsResult" nillable="true" type="q26:ServiceResponseOfboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -227,7 +295,7 @@
   <xs:element name="GetDatabaseStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetDatabaseStatusResult" nillable="true" type="q21:ServiceResponseOfstring" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SynchronicWorldService.Models" minOccurs="0" name="GetDatabaseStatusResult" nillable="true" type="q27:ServiceResponseOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
